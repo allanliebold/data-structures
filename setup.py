@@ -1,4 +1,4 @@
-"""."""
+"""Setup file for data-structures repo."""
 from setuptools import setup
 
 setup(
