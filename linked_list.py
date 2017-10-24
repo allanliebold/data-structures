@@ -13,27 +13,28 @@ class Node(object):
 class LinkedList(object):
     """LinkedList Class."""
 
-    def __init__(self, head=None, length=0):
+    def __init__(self):
         """Init."""
-        self.head = head
-        self.length = length
+        self.head = None
+        self._length = 0
 
-    def push(self, node):
+    def push(self, value):
         """Push method."""
-        node.next = self.head
-        self.head = node
-        self.length += 1
+        new = Node(value)
+        new.next = self.head
+        self.head = new
+        self._length += 1
         print('Node added')
-        print(node)
 
     def pop(self):
         """Pop method."""
-        deleted_node = self.head.value
-        self.head = self.head.next
-        print('Node deleted')
-        print(deleted_node)
-        self.length -= 1
-        return deleted_node
+        if not self.head:
+            return None
+        else:
+            deleted_node = self.head.value
+            self.head = self.head.next
+            self._length -= 1
+            return deleted_node
 
     def size(self):
         """Size method."""
