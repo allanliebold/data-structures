@@ -13,38 +13,41 @@ class Node(object):
 class LinkedList(object):
     """LinkedList Class."""
 
-    def __init__(self, head=None, length=0):
+    def __init__(self, iterable=()):
         """Init."""
-        self.head = head
-        self.length = length
+        self.head = None
+        self._length = 0
+        if isinstance(iterable, (str, tuple, list)):
+            for i in iterable:
+                self.push(i)
 
-    def push(self, node):
+    def push(self, value):
         """Push method."""
-        node.next = self.head
-        self.head = node
-        self.length += 1
-        print('Node added')
-        print(node)
+        new = Node(value)
+        new.next = self.head
+        self.head = new
+        self._length += 1
 
     def pop(self):
         """Pop method."""
-        deleted_node = self.head
-        self.head = self.head.next
-        print('Node deleted')
-        print(deleted_node)
-        self.length -= 1
-        return deleted_node
+        if not self.head:
+            return None
+        else:
+            deleted_node = self.head.value
+            self.head = self.head.next
+            self._length -= 1
+            return deleted_node
 
     def size(self):
         """Size method."""
-        return self.length
+        return self._length
 
     def search(self, target):
         """Search method."""
         current_node = self.head
         while current_node.value != target:
             if current_node.next is None:
-                return None
+                raise ValueError('not found')
             else:
                 current_node = current_node.next
         print(current_node.value)
