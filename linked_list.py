@@ -38,3 +38,15 @@ class LinkedList(object):
     def size(self):
         """Size method."""
         return self.length
+
+    def search(self, target):
+        """Search method."""
+        current_node = self.head
+        while current_node.value != target:
+            if current_node.next is None:
+                return None
+            else:
+                current_node = current_node.next
+        print(current_node.value)
+        return current_node
+        
