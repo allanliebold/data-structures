@@ -66,3 +66,15 @@ class LinkedList(object):
         current_node.next = next_node.next
         self.length -= 1
         return next_node
+
+    def display(self):
+        """Function Displays list."""
+        list_contents = '('
+        current_node = self.head
+        list_contents += str(current_node.value)
+        while current_node.next is not None:
+            list_contents += ', ' + str(current_node.next.value)
+            current_node = current_node.next
+        list_contents += ')'
+        return list_contents
+        # the return above needs to be a unicode string
