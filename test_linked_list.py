@@ -29,6 +29,15 @@ def test_list_push_next():
     assert linked_list.head.value == 'second' and linked_list.head.next.value == 'first'
 
 
+def test_list_push_iterable():
+    """."""
+    from linked_list import LinkedList
+    values = [1, 2, 3, 4, 5]
+    linked_list = LinkedList(values)
+    for i in values:
+        assert linked_list.search(i).value == i
+
+
 def test_list_pop():
     """Test that pop returns the value of the deleted node."""
     from linked_list import LinkedList
