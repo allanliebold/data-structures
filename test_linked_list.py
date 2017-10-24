@@ -1,7 +1,8 @@
 """Tests for Data Structures."""
+import pytest
 from linked_list import Node, LinkedList
+
 n = Node('test')
-linked_list = LinkedList()
 
 
 def test_node_attributes():
@@ -11,6 +12,7 @@ def test_node_attributes():
 
 def test_list_push():
     """Test that linked_list has node pushed to it."""
+    linked_list = LinkedList()
     linked_list.push(1)
     assert linked_list.head.value == 1
 
@@ -20,6 +22,7 @@ def test_list_push_next():
 
     Head should be new node, next attribute should point to previous head.
     """
+    linked_list = LinkedList()
     linked_list.push('first')
     linked_list.push('second')
     assert linked_list.head.value == 'second' and linked_list.head.next.value == 'first'
@@ -27,13 +30,22 @@ def test_list_push_next():
 
 def test_list_pop():
     """Test that pop returns the value of the deleted node."""
+    linked_list = LinkedList()
     linked_list.push('target')
     assert linked_list.pop() == 'target'
 
 
 def test_list_search():
     """Test that search method returns the node with the value passed."""
+    linked_list = LinkedList()
     linked_list.push(1)
     linked_list.push('target')
     linked_list.push(3)
     assert linked_list.search('target').value == 'target'
+
+
+def test_list_size():
+    linked_list = LinkedList()
+    for i in range(10):
+        linked_list.push(i)
+    assert linked_list.size() == 10

@@ -24,7 +24,6 @@ class LinkedList(object):
         new.next = self.head
         self.head = new
         self._length += 1
-        print('Node added')
 
     def pop(self):
         """Pop method."""
@@ -38,7 +37,7 @@ class LinkedList(object):
 
     def size(self):
         """Size method."""
-        return self.length
+        return self._length
 
     def search(self, target):
         """Search method."""
