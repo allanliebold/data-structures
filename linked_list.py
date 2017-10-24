@@ -49,4 +49,20 @@ class LinkedList(object):
                 current_node = current_node.next
         print(current_node.value)
         return current_node
-        
+
+    def remove(self, target):
+        """Remove method."""
+        current_node = self.head
+        next_node = current_node.next
+        if current_node.value == target:
+            self.pop()
+            return current_node
+        while next_node.value != target:
+            if next_node.next is None:
+                raise ValueError('Not found')
+            else:
+                current_node = next_node
+                next_node = current_node.next
+        current_node.next = next_node.next
+        self.length -= 1
+        return next_node
