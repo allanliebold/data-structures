@@ -28,7 +28,7 @@ class LinkedList(object):
 
     def pop(self):
         """Pop method."""
-        deleted_node = self.head
+        deleted_node = self.head.value
         self.head = self.head.next
         print('Node deleted')
         print(deleted_node)
