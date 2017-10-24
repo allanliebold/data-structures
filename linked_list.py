@@ -44,7 +44,7 @@ class LinkedList(object):
         current_node = self.head
         while current_node.value != target:
             if current_node.next is None:
-                return None
+                raise ValueError('not found')
             else:
                 current_node = current_node.next
         print(current_node.value)
