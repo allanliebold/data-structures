@@ -81,3 +81,10 @@ def test_list_size():
     for i in range(10):
         linked_list.push(i)
     assert linked_list.size() == 10
+
+
+def test_string_not_iterated_upon_init():
+    """Test that strings passed on init are not split."""
+    from linked_list import LinkedList
+    linked_list = LinkedList('68')
+    assert linked_list.head.value == '68'

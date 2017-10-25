@@ -17,7 +17,7 @@ class LinkedList(object):
         """Init."""
         self.head = None
         self._length = 0
-        if isinstance(iterable, (str, tuple, list)):
+        if isinstance(iterable, (tuple, list)):
             for i in iterable:
                 self.push(i)
         else:
