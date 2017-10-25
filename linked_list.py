@@ -20,6 +20,8 @@ class LinkedList(object):
         if isinstance(iterable, (str, tuple, list)):
             for i in iterable:
                 self.push(i)
+        else:
+            self.push(iterable)
 
     def push(self, value):
         """Push method."""
