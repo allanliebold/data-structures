@@ -83,3 +83,11 @@ class LinkedList(object):
         list_contents += ')'
         return list_contents
         # the return above needs to be a unicode string
+
+    def __len__(self):
+        """Function overwrites built-in len function to show length."""
+        return self._length
+
+    def __str__(self):
+        """Function overwrites built-in print to display list."""
+        return self.display()
