@@ -4,10 +4,10 @@
 class Node(object):
     """Node Class."""
 
-    def __init__(self, value, next=None):
+    def __init__(self, data, next=None):
         """Init."""
         self.next = next
-        self.value = value
+        self.data = data
 
 
 class LinkedList(object):
@@ -23,9 +23,9 @@ class LinkedList(object):
         else:
             self.push(iterable)
 
-    def push(self, value):
+    def push(self, data):
         """Push method."""
-        new = Node(value)
+        new = Node(data)
         new.next = self.head
         self.head = new
         self._length += 1
@@ -35,7 +35,7 @@ class LinkedList(object):
         if not self.head:
             return None
         else:
-            deleted_node = self.head.value
+            deleted_node = self.head.data
             self.head = self.head.next
             self._length -= 1
             return deleted_node
@@ -47,22 +47,22 @@ class LinkedList(object):
     def search(self, target):
         """Search method."""
         current_node = self.head
-        while current_node.value != target:
+        while current_node.data != target:
             if current_node.next is None:
                 raise ValueError('not found')
             else:
                 current_node = current_node.next
-        print(current_node.value)
+        print(current_node.data)
         return current_node
 
     def remove(self, target):
         """Remove method."""
         current_node = self.head
         next_node = current_node.next
-        if current_node.value == target:
+        if current_node.data == target:
             self.pop()
             return current_node
-        while next_node.value != target:
+        while next_node.data != target:
             if next_node.next is None:
                 raise ValueError('Not found')
             else:
@@ -76,9 +76,9 @@ class LinkedList(object):
         """Function Displays list."""
         list_contents = '('
         current_node = self.head
-        list_contents += str(current_node.value)
+        list_contents += str(current_node.data)
         while current_node.next is not None:
-            list_contents += ', ' + str(current_node.next.value)
+            list_contents += ', ' + str(current_node.next.data)
             current_node = current_node.next
         list_contents += ')'
         return list_contents
