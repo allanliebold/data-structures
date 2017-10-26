@@ -119,3 +119,12 @@ def test_remove_head_of_list_with_multiple_nodes():
     test_dll.push('target')
     check = test_dll.head
     assert test_dll.remove('target') == check
+
+
+def test_remove_with_one_node():
+    """Test remove if only one node."""
+    from dll import Dll
+    test_dll = Dll()
+    test_dll.push('target')
+    test_dll.remove('target')
+    assert test_dll.head is None
