@@ -89,3 +89,33 @@ def test_remove_returns_node():
     check = test_dll.head
     test_dll.push(34)
     assert test_dll.remove('target') == check
+
+
+def test_remove_to_ensure_node_no_longer_exists():
+    """Test remove method to ensure node is gone once remove is called."""
+    from dll import Dll
+    test_dll = Dll()
+    test_dll.push(11)
+    test_dll.push('target')
+    test_dll.push(34)
+    test_dll.remove('target')
+    with pytest.raises(ValueError):
+        test_dll._linkedlist.search('target')
+
+
+def test_remove_with_empty_list():
+    """Test to ensure error raised if remove called on empty list."""
+    from dll import Dll
+    test_dll = Dll()
+    with pytest.raises(IndexError):
+        test_dll.remove('a thing')
+
+
+def test_remove_head_of_list_with_multiple_nodes():
+    """Test for remove method on list with multiple nodes."""
+    from dll import Dll
+    test_dll = Dll()
+    test_dll.push(11)
+    test_dll.push('target')
+    check = test_dll.head
+    assert test_dll.remove('target') == check

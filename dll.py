@@ -71,7 +71,11 @@ class Dll(object):
 
     def remove(self, val):
         """Remove method for Dll to remove specified node."""
+        if self._length < 1:
+            raise IndexError('Value not present. List empty.')
         target = self._linkedlist.search(val)
-        target.prev.next = target.next
-        target.next.prev = target.prev
+        if target.prev:
+            target.prev.next = target.next
+        if target.next:
+            target.next.prev = target.prev
         return target
