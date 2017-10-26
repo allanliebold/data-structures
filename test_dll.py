@@ -67,3 +67,14 @@ def test_append_two_nodes():
     test_dll.append(9)
     test_dll.append('goat')
     assert test_dll.tail.data == 'goat'
+
+
+def test_shift():
+    """Test shift function.
+
+    Should remove last node and return value.
+    """
+    from dll import Dll
+    test_dll = Dll()
+    test_dll.append(8)
+    assert test_dll.shift() == 8

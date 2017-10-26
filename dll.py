@@ -54,3 +54,19 @@ class Dll(object):
             prev_tail.next = new_tail
             self.tail.prev = prev_tail
         self._length += 1
+
+    def shift(self):
+        """Shift method for Dll to remove from tail end."""
+        if not self.tail:
+            raise IndexError('List empty')
+        deleted_node = self.tail.data
+        self._length -= 1
+        if not self.tail.prev:
+            self.head = None
+            self.tail = None
+        else:
+            self.tail = self.tail.prev
+            self.tail.next = None
+        return deleted_node
+
+
