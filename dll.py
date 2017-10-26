@@ -16,6 +16,9 @@ class Dll(object):
         """Push method for Dll."""
         prev_head = self.head
         new_head = self._linkedlist.push(data)
+        if self._length == 1:
+            self.tail == new_head
+
         if self.head:
             self.head.prev = new_head
         self.head = new_head
@@ -31,6 +34,7 @@ class Dll(object):
         self._length -= 1
         if not self.head.next:
             self.head = None
+            self.tail = None
         else:
             self.head = self.head.next
             self.head.prev = None
