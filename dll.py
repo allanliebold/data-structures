@@ -1,5 +1,6 @@
 """Implementation of doubly-linked list."""
 from linked_list import LinkedList
+from linked_list import Node
 
 
 class Dll(object):
@@ -39,3 +40,17 @@ class Dll(object):
             self.head = self.head.next
             self.head.prev = None
         return deleted_node
+
+    def append(self, data):
+        """Append method for Dll to add to tail."""
+        prev_tail = self.tail
+        new_tail = Node(data)
+        if self._length == 0:
+            self.tail = new_tail
+            self.head = new_tail
+            self.tail.prev = None
+        self.tail = new_tail
+        if self._length > 0:
+            prev_tail.next = new_tail
+            self.tail.prev = prev_tail
+        self._length += 1

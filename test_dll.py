@@ -50,3 +50,20 @@ def test_pop():
     test_dll = Dll()
     test_dll.push(1)
     assert test_dll.pop() == 1
+
+
+def test_append():
+    """Test append function to add to tail."""
+    from dll import Dll
+    test_dll = Dll()
+    test_dll.append(9)
+    assert test_dll.tail.data == 9
+
+
+def test_append_two_nodes():
+    """Test append function to add to tail."""
+    from dll import Dll
+    test_dll = Dll()
+    test_dll.append(9)
+    test_dll.append('goat')
+    assert test_dll.tail.data == 'goat'
