@@ -69,4 +69,9 @@ class Dll(object):
             self.tail.next = None
         return deleted_node
 
-
+    def remove(self, val):
+        """Remove method for Dll to remove specified node."""
+        target = self._linkedlist.search(val)
+        target.prev.next = target.next
+        target.next.prev = target.prev
+        return target

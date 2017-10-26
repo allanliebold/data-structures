@@ -84,8 +84,8 @@ def test_remove_returns_node():
     """Test that correct node returned from search."""
     from dll import Dll
     test_dll = Dll()
-    test_dll.append(11)
-    test_dll.append('target')
-    check = test_dll.tail.prev
-    test_dll.append(34)
+    test_dll.push(11)
+    test_dll.push('target')
+    check = test_dll.head
+    test_dll.push(34)
     assert test_dll.remove('target') == check
