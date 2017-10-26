@@ -39,3 +39,14 @@ def test_dll_next_push_two():
     test_dll.push(1)
     test_dll.push(2)
     assert test_dll.head.next.prev.data == 2
+
+
+def test_pop():
+    """Test pop function.
+
+    Should remove first node and return value.
+    """
+    from dll import Dll
+    test_dll = Dll()
+    test_dll.push(1)
+    assert test_dll.pop() == 1

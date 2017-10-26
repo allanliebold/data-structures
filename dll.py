@@ -1,6 +1,5 @@
 """Implementation of doubly-linked list."""
 from linked_list import LinkedList
-from linked_list import Node
 
 
 class Dll(object):
@@ -17,20 +16,22 @@ class Dll(object):
         """Push method for Dll."""
         prev_head = self.head
         new_head = self._linkedlist.push(data)
-        if self._length != 0:
+        if self.head:
             self.head.prev = new_head
         self.head = new_head
         self.head.next = prev_head
         self._length += 1
         self.head.prev = None
 
-
-class Dllnode(object):
-    """Doubly-Linked Node Class."""
-
-    def __init__(self, data):
-        """Dll initialization."""
-        self._node = Node(data)
-        self.data = self._node.data
-        self.next = self._node.next
-        self.prev = None
+    def pop(self):
+        """Pop method for Dll."""
+        if not self.head:
+            raise IndexError('List empty')
+        deleted_node = self._linkedlist.pop()
+        self._length -= 1
+        if not self.head.next:
+            self.head = None
+        else:
+            self.head = self.head.next
+            self.head.prev = None
+        return deleted_node

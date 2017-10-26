@@ -42,8 +42,8 @@ def test_list_pop():
     """Test that pop returns the data of the deleted node."""
     from linked_list import LinkedList
     linked_list = LinkedList()
-    linked_list.push('target')
-    assert linked_list.pop() == 'target'
+    linked_list.push(5)
+    assert linked_list.pop() == 5
 
 
 def test_list_pop_empty():
