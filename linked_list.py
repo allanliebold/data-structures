@@ -4,9 +4,9 @@
 class Node(object):
     """Node Class."""
 
-    def __init__(self, data, next=None):
+    def __init__(self, data):
         """Init."""
-        self.next = next
+        self.next = None
         self.data = data
 
 
@@ -29,6 +29,7 @@ class LinkedList(object):
         new.next = self.head
         self.head = new
         self._length += 1
+        return new
 
     def pop(self):
         """Pop method."""
