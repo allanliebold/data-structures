@@ -6,7 +6,7 @@ def test_node_attributes():
     """Test that node object has expected attributes."""
     from linked_list import Node
     n = Node('test')
-    assert n.value == 'test' and n.next is None
+    assert n.data == 'test' and n.next is None
 
 
 def test_list_push():
@@ -14,7 +14,7 @@ def test_list_push():
     from linked_list import LinkedList
     linked_list = LinkedList()
     linked_list.push(1)
-    assert linked_list.head.value == 1
+    assert linked_list.head.data == 1
 
 
 def test_list_push_next():
@@ -26,20 +26,20 @@ def test_list_push_next():
     linked_list = LinkedList()
     linked_list.push('first')
     linked_list.push('second')
-    assert linked_list.head.value == 'second' and linked_list.head.next.value == 'first'
+    assert linked_list.head.data == 'second' and linked_list.head.next.data == 'first'
 
 
 def test_list_push_iterable():
     """."""
     from linked_list import LinkedList
-    values = [1, 2, 3, 4, 5]
-    linked_list = LinkedList(values)
-    for i in values:
-        assert linked_list.search(i).value == i
+    datas = [1, 2, 3, 4, 5]
+    linked_list = LinkedList(datas)
+    for i in datas:
+        assert linked_list.search(i).data == i
 
 
 def test_list_pop():
-    """Test that pop returns the value of the deleted node."""
+    """Test that pop returns the data of the deleted node."""
     from linked_list import LinkedList
     linked_list = LinkedList()
     linked_list.push('target')
@@ -54,17 +54,17 @@ def test_list_pop_empty():
 
 
 def test_list_search():
-    """Test that search method returns the node with the value passed."""
+    """Test that search method returns the node with the data passed."""
     from linked_list import LinkedList
     linked_list = LinkedList()
     linked_list.push(1)
     linked_list.push('target')
     linked_list.push(3)
-    assert linked_list.search('target').value == 'target'
+    assert linked_list.search('target').data == 'target'
 
 
 def test_list_search_invalid():
-    """Test that search for node not in list raises ValueError."""
+    """Test that search for node not in list raises dataError."""
     from linked_list import LinkedList
     linked_list = LinkedList()
     linked_list.push(1)
@@ -87,4 +87,4 @@ def test_string_not_iterated_upon_init():
     """Test that strings passed on init are not split."""
     from linked_list import LinkedList
     linked_list = LinkedList('68')
-    assert linked_list.head.value == '68'
+    assert linked_list.head.data == '68'

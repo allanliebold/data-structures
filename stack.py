@@ -12,9 +12,9 @@ class Stack(object):
         self._length = self._linkedlist._length
         print('stack created')
 
-    def push(self, value):
+    def push(self, data):
         """Push method for Stack."""
-        self._linkedlist.push(value)
+        self._linkedlist.push(data)
         print('pushed')
 
     def pop(self):
