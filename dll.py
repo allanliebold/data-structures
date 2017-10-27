@@ -17,10 +17,10 @@ class Dll(object):
         """Push method for Dll."""
         prev_head = self.head
         new_head = self._linkedlist.push(data)
-        if self._length == 0:
-            self.tail == new_head
+        if self.tail is None:
+            self.tail = new_head
         if self.head:
-            self.head.prev = new_head
+            prev_head.prev = new_head
         self.head = new_head
         self.head.next = prev_head
         self._length += 1
@@ -56,7 +56,7 @@ class Dll(object):
 
     def shift(self):
         """Shift method for Dll to remove from tail end."""
-        if not self.tail:
+        if self._length == 0:
             raise IndexError('List empty')
         deleted_node = self.tail.data
         self._length -= 1

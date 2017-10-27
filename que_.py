@@ -20,3 +20,7 @@ class Queue(object):
     def enqueue(self, data):
         """Add node to queue."""
         self._dll.push(data)
+
+    def dequeue(self):
+        """Remove node from queue."""
+        return self._dll.shift()
