@@ -1,4 +1,4 @@
-"""Implementation of doubly-linked list."""
+"""Implementation of Doubly-Linked list."""
 from linked_list import LinkedList
 from linked_list import Node
 
@@ -9,19 +9,18 @@ class Dll(object):
     def __init__(self):
         """List initialization."""
         self._linkedlist = LinkedList()
-        self.head = None
-        self._length = 0
+        self.head = self._linkedlist.head
+        self._length = self._linkedlist._length
         self.tail = None
 
     def push(self, data):
         """Push method for Dll."""
         prev_head = self.head
         new_head = self._linkedlist.push(data)
-        if self._length == 1:
-            self.tail == new_head
-
+        if self.tail is None:
+            self.tail = new_head
         if self.head:
-            self.head.prev = new_head
+            prev_head.prev = new_head
         self.head = new_head
         self.head.next = prev_head
         self._length += 1
@@ -57,7 +56,7 @@ class Dll(object):
 
     def shift(self):
         """Shift method for Dll to remove from tail end."""
-        if not self.tail:
+        if self._length == 0:
             raise IndexError('List empty')
         deleted_node = self.tail.data
         self._length -= 1
@@ -82,3 +81,7 @@ class Dll(object):
         if target.next:
             target.next.prev = target.prev
         return target
+
+    def __len__(self):
+        """Function overwrites built-in len function to show length."""
+        return self._length
