@@ -1,4 +1,4 @@
-"""Implementation of doubly-linked list."""
+"""Implementation of Doubly-Linked list."""
 from linked_list import LinkedList
 from linked_list import Node
 
