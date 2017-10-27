@@ -1,8 +1,9 @@
 # Data Structures
 
 ## Singly-Linked List
-A data structure that links together nodes in one direction, beginning at a head 
-node.
+A data structure that links together nodes in one direction, beginning at a head node. This structure is used for keeping
+track of sequentially related data where each piece of data only needs to point to the next in the chain and not back to the
+previous one. 
 
 push(data): Adds a new node to the head of the list.
 Time complexity: O(1)
@@ -41,8 +42,9 @@ pop(): Removes the top node from the stack, and returns the value of the node.
 Time complexity: O(1)
 
 ## Doubly-Linked List
-Similar to a Singly-Linked list, but each node also points to the previous node. 
-In addition to the head, the list also contains a tail node. 
+Similar to a Singly-Linked list, but each node also points to the previous node. In addition to the head, the list also
+contains a tail node. This is more flexible than a Singly-Linked List, but requires more space in memory. An example of a use 
+case is a browser history allowing a user to go backward and forward through visited pages. 
 
 push(data): Adds a new node to the head of the list with the data passed in as an argument.
 Time complexity: O(1)
