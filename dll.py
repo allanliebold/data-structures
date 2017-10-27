@@ -9,17 +9,16 @@ class Dll(object):
     def __init__(self):
         """List initialization."""
         self._linkedlist = LinkedList()
-        self.head = None
-        self._length = 0
+        self.head = self._linkedlist.head
+        self._length = self._linkedlist._length
         self.tail = None
 
     def push(self, data):
         """Push method for Dll."""
         prev_head = self.head
         new_head = self._linkedlist.push(data)
-        if self._length == 1:
+        if self._length == 0:
             self.tail == new_head
-
         if self.head:
             self.head.prev = new_head
         self.head = new_head
