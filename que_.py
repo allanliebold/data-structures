@@ -24,3 +24,13 @@ class Queue(object):
     def dequeue(self):
         """Remove node from queue."""
         return self._dll.shift()
+
+    def peek(self):
+        """Display next value that will be removed if dequeued is called."""
+        if self.length == 0:
+            return None
+        return self._dll.tail.data
+
+    def __len__(self):
+        """Function overwrites built-in len function to show length."""
+        return self.length

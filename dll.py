@@ -81,3 +81,7 @@ class Dll(object):
         if target.next:
             target.next.prev = target.prev
         return target
+
+    def __len__(self):
+        """Function overwrites built-in len function to show length."""
+        return self._length

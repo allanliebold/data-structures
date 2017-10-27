@@ -43,3 +43,29 @@ def test_dequeue_node_length():
     test_q.enqueue(10)
     test_q.dequeue()
     assert test_q.length == 1
+
+
+def test_dequeue_head_is_tail_with_one():
+    """Test if head == tail if only one node."""
+    from que_ import Queue
+    test_q = Queue()
+    test_q.enqueue(99)
+    test_q.enqueue(5)
+    test_q.dequeue()
+    assert test_q._dll.tail == test_q._dll.head
+
+
+def test_peek():
+    """Test if next value to be removed is accurate."""
+    from que_ import Queue
+    test_q = Queue()
+    test_q.enqueue(99)
+    test_q.enqueue(5)
+    assert test_q.peek() == 99
+
+
+def test_peek_empty():
+    """Test calling peek on empty returns None."""
+    from que_ import Queue
+    test_q = Queue()
+    assert test_q.peek() is None
