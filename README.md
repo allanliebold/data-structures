@@ -1,8 +1,9 @@
 # Data Structures
 
 ## Singly-Linked List
-A data structure that links together nodes in one direction, beginning at a head 
-node.
+A data structure that links together nodes in one direction, beginning at a head node. This structure is used for keeping
+track of sequentially related data where each piece of data only needs to point to the next in the chain and not back to the
+previous one. 
 
 push(data): Adds a new node to the head of the list.
 Time complexity: O(1)
