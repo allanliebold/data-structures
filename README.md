@@ -32,29 +32,29 @@ display() function.
 Time complexity: O(n)
 
 ## Stack
-Last in first out. 
+Data structure where nodes are added and removed from the top of the stack. Last in, first out.
 
-push(data)
+push(data): Adds a new node to the top of the stack with the value passed in as an argument.
 Time complexity: O(1)
 
-pop()
+pop(): Removes the top node from the stack, and returns the value of the node.
 Time complexity: O(1)
 
 ## Doubly-Linked List
 Similar to a Singly-Linked list, but each node also points to the previous node. 
 In addition to the head, the list also contains a tail node. 
 
-push(data)
+push(data): Adds a new node to the head of the list with the data passed in as an argument.
 Time complexity: O(1)
 
-pop()
+pop(): Removes node at the head of the list, and returns it.
 Time complexity: O(1)
 
-append(data)
+append(data): Adds a new node to the tail of the list with the data passed in as an argument.
 Time complexity: O(1)
 
-shift()
+shift(): Removes node at the tail of the list, and returns it.
 Time complexity: O(1)
 
-remove(data)
+remove(data): Iterates through list, starting from the head, until node with data passed as argument is found. Removes references to the node, and returns the node. If no node contains the data, raises Value Error.
 Time complexity: O(n)
