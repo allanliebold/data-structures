@@ -1,12 +1,15 @@
-"""Implementation of Queue."""
+"""Implementation of Queue. First in, first out data structure."""
 from dll import Dll
 
 
 class Queue(object):
-    """Queue Class."""
+    """Create Queue Class object."""
 
     def __init__(self):
-        """Queue initiliazation."""
+        """Queue initiliazation.
+
+        Composed of Doubly-Linked List attributes and methods.
+        """
         self._dll = Dll()
         self._length = self._dll._length
         self.head = self._dll.head
@@ -14,15 +17,15 @@ class Queue(object):
 
     @property
     def length(self):
-        """."""
+        """Use dll length method to return size of list."""
         return self._dll._length
 
     def enqueue(self, data):
-        """Add node to queue."""
+        """Add node to queue at head."""
         self._dll.push(data)
 
     def dequeue(self):
-        """Remove node from queue."""
+        """Remove node from queue at tail."""
         return self._dll.shift()
 
     def peek(self):

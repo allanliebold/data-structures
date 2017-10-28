@@ -1,20 +1,23 @@
-"""Implementation of Doubly-Linked list."""
+"""Implementation of Doubly-Linked list with a head and tail."""
 from linked_list import LinkedList
 from linked_list import Node
 
 
 class Dll(object):
-    """Doubly-Linked List Class."""
+    """Doubly-Linked List class object."""
 
     def __init__(self):
-        """List initialization."""
+        """Doubly-linked list initialization.
+
+        Composed of some attributes from linked-list, and also has a tail.
+        """
         self._linkedlist = LinkedList()
         self.head = self._linkedlist.head
         self._length = self._linkedlist._length
         self.tail = None
 
     def push(self, data):
-        """Push method for Dll."""
+        """Push node to head of list."""
         prev_head = self.head
         new_head = self._linkedlist.push(data)
         if self.tail is None:
@@ -22,21 +25,21 @@ class Dll(object):
         if self.head:
             prev_head.prev = new_head
         self.head = new_head
-        self.head.next = prev_head
+        self.head.next_node = prev_head
         self._length += 1
         self.head.prev = None
 
     def pop(self):
-        """Pop method for Dll."""
+        """Remove node at head of list."""
         if not self.head:
             raise IndexError('List empty')
         deleted_node = self._linkedlist.pop()
         self._length -= 1
-        if not self.head.next:
+        if not self.head.next_node:
             self.head = None
             self.tail = None
         else:
-            self.head = self.head.next
+            self.head = self.head.next_node
             self.head.prev = None
         return deleted_node
 
@@ -50,7 +53,7 @@ class Dll(object):
             self.tail.prev = None
         self.tail = new_tail
         if self._length > 0:
-            prev_tail.next = new_tail
+            prev_tail.next_node = new_tail
             self.tail.prev = prev_tail
         self._length += 1
 
@@ -65,7 +68,7 @@ class Dll(object):
             self.tail = None
         else:
             self.tail = self.tail.prev
-            self.tail.next = None
+            self.tail.next_node = None
         return deleted_node
 
     def remove(self, val):
@@ -77,11 +80,11 @@ class Dll(object):
             self.tail = None
         target = self._linkedlist.search(val)
         if target.prev:
-            target.prev.next = target.next
-        if target.next:
-            target.next.prev = target.prev
+            target.prev.next_node = target.next_node
+        if target.next_node:
+            target.next_node.prev = target.prev
         return target
 
     def __len__(self):
-        """Function overwrites built-in len function to show length."""
+        """Function uses built-in len function to show length."""
         return self._length

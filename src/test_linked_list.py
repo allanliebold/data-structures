@@ -1,4 +1,4 @@
-"""Tests for Data Structures."""
+"""Tests for singly-linked list."""
 import pytest
 
 
@@ -6,7 +6,7 @@ def test_node_attributes():
     """Test that node object has expected attributes."""
     from linked_list import Node
     n = Node('test')
-    assert n.data == 'test' and n.next is None
+    assert n.data == 'test' and n.next_node is None
 
 
 def test_list_push():
@@ -26,7 +26,7 @@ def test_list_push_next():
     linked_list = LinkedList()
     linked_list.push('first')
     linked_list.push('second')
-    assert linked_list.head.data == 'second' and linked_list.head.next.data == 'first'
+    assert linked_list.head.data == 'second' and linked_list.head.next_node.data == 'first'
 
 
 def test_list_push_iterable():

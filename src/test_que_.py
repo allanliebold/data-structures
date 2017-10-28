@@ -1,5 +1,4 @@
 """Tests for queue data structure."""
-import pytest
 
 
 def test_queue_init():
