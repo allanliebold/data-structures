@@ -61,3 +61,13 @@ Time complexity: O(1)
 
 remove(data): Iterates through list, starting from the head, until node with data passed as argument is found. Removes references to the node, and returns the node. If no node contains the data, raises Value Error.
 Time complexity: O(n)
+
+
+## Queue
+A data structure where the first node added will be the first removed. 
+
+enqueue(data): Adds a new node to the queue. It will be behind any nodes already enqueued for order to be dequeued. Time complexity: O(1)
+
+dequeue(data): Removes the next node to be dequeued, which should be whatever node remaining in the queue was added first. Time complexity: O(1)
+
+peek(): Returns the value of the next node to be dequeued without removing it. Time complexity: O(1)
