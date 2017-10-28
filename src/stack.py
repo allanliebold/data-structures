@@ -15,14 +15,8 @@ class Stack(object):
         self._length = self._linkedlist._length
 
     def push(self, data):
-<<<<<<< HEAD:stack.py
-        """Push method for Stack."""
-        self._linkedlist.push(data)
-        print('pushed')
-=======
         """Push method for Stack. Adds node at head."""
         self._linkedlist.push(data)
->>>>>>> 4f521ce65dba73a38e78261a4d68e1d03aa77c73:src/stack.py
 
     def pop(self):
         """Pop method for Stack. Removes node at head."""

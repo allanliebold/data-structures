@@ -40,7 +40,7 @@ Time complexity: O(1)
 
 pop(): Removes the top node from the stack, and returns the value of the node.
 Time complexity: O(1)
-<<<<<<< HEAD
+
 
 ## Doubly-Linked List
 Similar to a Singly-Linked list, but each node also points to the previous node. In addition to the head, the list also
@@ -61,5 +61,3 @@ Time complexity: O(1)
 
 remove(data): Iterates through list, starting from the head, until node with data passed as argument is found. Removes references to the node, and returns the node. If no node contains the data, raises Value Error.
 Time complexity: O(n)
-=======
->>>>>>> 4f521ce65dba73a38e78261a4d68e1d03aa77c73
