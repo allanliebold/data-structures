@@ -63,7 +63,6 @@ remove(data): Iterates through list, starting from the head, until node with dat
 Time complexity: O(n)
 
 
-
 ## Queue
 A data structure where the first node added will be the first removed. 
 
