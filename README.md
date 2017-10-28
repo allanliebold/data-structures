@@ -40,3 +40,24 @@ Time complexity: O(1)
 
 pop(): Removes the top node from the stack, and returns the value of the node.
 Time complexity: O(1)
+
+
+## Doubly-Linked List
+Similar to a Singly-Linked list, but each node also points to the previous node. In addition to the head, the list also
+contains a tail node. This is more flexible than a Singly-Linked List, but requires more space in memory. An example of a use 
+case is a browser history allowing a user to go backward and forward through visited pages. 
+
+push(data): Adds a new node to the head of the list with the data passed in as an argument.
+Time complexity: O(1)
+
+pop(): Removes node at the head of the list, and returns it.
+Time complexity: O(1)
+
+append(data): Adds a new node to the tail of the list with the data passed in as an argument.
+Time complexity: O(1)
+
+shift(): Removes node at the tail of the list, and returns it.
+Time complexity: O(1)
+
+remove(data): Iterates through list, starting from the head, until node with data passed as argument is found. Removes references to the node, and returns the node. If no node contains the data, raises Value Error.
+Time complexity: O(n)
