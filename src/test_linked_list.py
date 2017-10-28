@@ -80,7 +80,7 @@ def test_list_size():
     linked_list = LinkedList()
     for i in range(10):
         linked_list.push(i)
-    assert linked_list.size() == 11
+    assert linked_list.size() == 10
 
 
 def test_string_not_iterated_upon_init():

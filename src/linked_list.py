@@ -16,7 +16,7 @@ class Node(object):
 class LinkedList(object):
     """Linked list class object that contains nodes."""
 
-    def __init__(self, iterable=None):
+    def __init__(self, iterable=()):
         """Initialization of list class object with a head, length, and can accept iterable."""
         self.head = None
         self._length = 0
@@ -62,19 +62,19 @@ class LinkedList(object):
     def remove(self, target):
         """Find node with target value, removes references to it, and returns value."""
         current_node = self.head
-        add_node = current_node.next_node
+        search_node = current_node.next_node
         if current_node.data == target:
             self.pop()
             return current_node
-        while add_node.data != target:
-            if add_node.next_node is None:
+        while search_node.data != target:
+            if search_node.next_node is None:
                 raise ValueError('Not found')
             else:
-                current_node = add_node
-                add_node = current_node.next_node
-        current_node.next_node = add_node.next_node
-        self.length -= 1
-        return add_node
+                current_node = search_node
+                search_node = current_node.next_node
+        current_node.next_node = search_node.next_node
+        self._length -= 1
+        return search_node
 
     def display(self):
         """Display list as a tuple-like string."""
