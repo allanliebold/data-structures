@@ -31,3 +31,12 @@ Time complexity: O(1)
 print(list): Overwrites built in print() and str() functions to show the same result as the
 display() function.
 Time complexity: O(n)
+
+## Stack
+Data structure where nodes are added and removed from the top of the stack. Last in, first out.
+
+push(data): Adds a new node to the top of the stack with the value passed in as an argument.
+Time complexity: O(1)
+
+pop(): Removes the top node from the stack, and returns the value of the node.
+Time complexity: O(1)
