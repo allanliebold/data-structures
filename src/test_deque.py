@@ -97,3 +97,14 @@ def test_peek_left_empty_list():
     from deque import Deque
     dq = Deque()
     assert dq.peek_left() is None
+
+
+def test_size_returns_length(dq_3):
+    """Test that calling size() returns the correct length."""
+    assert dq_3.size() == 3
+
+
+def test_size_of_empty_deque(dq_1):
+    """Test calling size on empty deque."""
+    dq_1.pop_left()
+    assert dq_1.size() == 0

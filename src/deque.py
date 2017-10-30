@@ -1,6 +1,5 @@
 """Implementation of deque, or double-ended queue."""
 from dll import Dll
-from linked_list import Node
 
 
 class Deque(object):
@@ -45,3 +44,7 @@ class Deque(object):
         if self.length == 0:
             return None
         return self._dll.head.data
+
+    def size(self):
+        """Function uses build-in len function to show length."""
+        return self.length
