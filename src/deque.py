@@ -29,3 +29,19 @@ class Deque(object):
     def pop(self):
         """Use dll shift method to remove node at back(tail)."""
         return self._dll.shift()
+
+    def pop_left(self):
+        """Use dll pop method to remove node from front(head)."""
+        return self._dll.pop()
+
+    def peek(self):
+        """Use dll peek method to view node at back(tail)."""
+        if self.length == 0:
+            return None
+        return self._dll.tail.data
+
+    def peek_left(self):
+        """Use dll peek method to view node at front(head)."""
+        if self.length == 0:
+            return None
+        return self._dll.head.data

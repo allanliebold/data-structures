@@ -53,3 +53,47 @@ def test_deque_length_after_pop(dq_3):
     """Test that length is correct after pop function."""
     dq_3.pop()
     assert dq_3.length == 2
+
+
+def test_pop_left_check_head(dq_3):
+    """Test checks head after using pop_left method."""
+    dq_3.pop_left()
+    assert dq_3._dll.head.data == 4
+
+
+def test_pop_left_for_length(dq_3):
+    """Test checks for length of 2 after popping left on deque of 3 nodes."""
+    dq_3.pop_left()
+    assert dq_3.length == 2
+
+
+def test_pop_left_on_empty_deque():
+    """Test that pop_left on empty list raises IndexError."""
+    from deque import Deque
+    dq = Deque()
+    with pytest.raises(IndexError):
+        dq.pop_left()
+
+
+def test_peek_shows_value_of_current_tail(dq_3):
+    """Test that peek returns value of node at back(tail)."""
+    assert dq_3.peek() == 'ragtime'
+
+
+def test_peek_shows_value_of_current_head(dq_3):
+    """Test that peek returns value of node at front(head)."""
+    assert dq_3.peek_left() == 'snine'
+
+
+def test_peek_empty_list():
+    """Test that peek returns None if empty deque."""
+    from deque import Deque
+    dq = Deque()
+    assert dq.peek() is None
+
+
+def test_peek_left_empty_list():
+    """Test that peek_left returns None if empty deque."""
+    from deque import Deque
+    dq = Deque()
+    assert dq.peek_left() is None
