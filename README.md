@@ -71,3 +71,24 @@ enqueue(data): Adds a new node to the queue. It will be behind any nodes already
 dequeue(data): Removes the next node to be dequeued, which should be whatever node remaining in the queue was added first. Time complexity: O(1)
 
 peek(): Returns the value of the next node to be dequeued without removing it. Time complexity: O(1)
+
+
+## Double-Ended Queue (Deque)
+A queue that allows data to be added and removed at both ends.
+
+append(data): Adds a new node to the back (tail) of the deque with passed data. Time complexity: O(1)
+
+append_left(data): Adds a new node to the front (head) of the deque with passed data. Time complexity O(1)
+
+pop(): Removes the node at the back of the deque and returns its data. Time complexity O(1)
+
+pop_left(): Removes the node at the front of the deque and returns its data. Time complexity: O(1)
+
+peek(): Returns the value of the node at the back of the deque. Time complexity: O(1)
+
+peek_left(): Returns the value of the node at the front of the deque. Time complexity: O(1)
+
+size(): Returns the length of the deque. Time complexity: O(1)
+
+
+#Authors: Matt Favoino, Allan Liebold
