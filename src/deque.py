@@ -17,3 +17,7 @@ class Deque(object):
     def length(self):
         """Use dll length method to return size of the deque."""
         return self._dll._length
+
+    def append(self, data):
+        """Use dll append method to add node with data at tail."""
+        self._dll.append(data)
