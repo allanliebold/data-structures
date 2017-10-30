@@ -16,3 +16,14 @@ def dq_1():
     dq = Deque()
     dq.append(9)
     return dq
+
+
+@pytest.fixture
+def dq_3():
+    """Create and append with three values."""
+    from deque import Deque
+    dq = Deque()
+    dq.append('snine')
+    dq.append(4)
+    dq.append('ragtime')
+    return dq

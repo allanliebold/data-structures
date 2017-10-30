@@ -25,3 +25,7 @@ class Deque(object):
     def append_left(self, data):
         """Use dll push method to add node with data at front(head)."""
         self._dll.push(data)
+
+    def pop(self):
+        """Use dll shift method to remove node at back(tail)."""
+        return self._dll.shift()

@@ -25,6 +25,31 @@ def test_dq_1_conftest(dq_1):
 
 
 def test_append_left_head_is_new_node(dq_1):
-    """Test to check if new node is data value associated with append_left arg."""
+    """Test if new node is data value associated with append_left arg."""
     dq_1.append_left('threve')
     assert dq_1._dll.head.data == 'threve'
+
+
+def test_append_left_adds_to_length(dq_3):
+    """Test length is correct after append left to list with three nodes."""
+    dq_3.append_left('trex')
+    assert dq_3.length == 4
+
+
+def test_pop_returns_value_of_tail(dq_3):
+    """Test that the correct value is returned with pop function."""
+    assert dq_3.pop() == 'ragtime'
+
+
+def test_pop_empty_list():
+    """Test that pop on empty list raises IndexError."""
+    from deque import Deque
+    dq = Deque()
+    with pytest.raises(IndexError):
+        dq.pop()
+
+
+def test_deque_length_after_pop(dq_3):
+    """Test that length is correct after pop function."""
+    dq_3.pop()
+    assert dq_3.length == 2
