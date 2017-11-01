@@ -28,13 +28,13 @@ class Heap(object):
         if self._size == 0:
             raise IndexError('Heap empty.')
 
-        if self._size < 3:
-            if self._size == 1:
-                self.contents = []
-            if self._size == 2:
-                del self.contents[0]
+        if self._size == 1:
+            self.contents = []
+        elif self._size == 2:
+            del self.contents[0]
         else:
-            pass
+            del self.contents[0]
+            self.heapify()
         self._size -= 1
         return
 
