@@ -7,6 +7,7 @@ class Heap(object):
     def __init__(self, iterable=()):
         """Initialization of Heap."""
         self.contents = []
+        self._size = 0
         if isinstance(iterable, (tuple, list)):
             for i in iterable:
                 self.push(i)
