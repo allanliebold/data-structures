@@ -28,3 +28,15 @@ def test_king_num_goes_to_root_throne(heap_3):
     """Check num greater than current root sorts to root."""
     heap_3.push(196)
     assert heap_3.contents == [196, 99, 74, 5]
+
+
+def test_if_error_raised_for_dupe_nums(heap_3):
+    """Check if ValueError raised if num already in list passed in as arg."""
+    with pytest.raises(ValueError):
+        heap_3.push(99)
+
+
+def test_size_after_pushing(heap_3):
+    """Test to see if size is 4 after pushing single value to existing heap of 3."""
+    heap_3.push(91)
+    heap_3._size == 4

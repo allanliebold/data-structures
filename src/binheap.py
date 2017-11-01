@@ -14,7 +14,10 @@ class Heap(object):
 
     def push(self, data):
         """Add new value to end of contents and sorts contents."""
+        if data in self.contents:
+            raise ValueError('Number already in list.')
         self.contents.append(data)
+        self._size += 1
         if len(self.contents) == 1:
             return
         else:
@@ -27,5 +30,4 @@ class Heap(object):
 
                 i -= 1
                 parent = (i - 1) // 2
-                print(self.contents)
             return
