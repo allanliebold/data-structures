@@ -40,3 +40,22 @@ def test_size_after_pushing(heap_3):
     """Test to see if size is 4 after pushing single value to existing heap of 3."""
     heap_3.push(91)
     heap_3._size == 4
+
+
+def test_pop_empty_heap(heap):
+    """Test IndexError raises when pop called on empty heap."""
+    with pytest.raises(IndexError):
+        heap.pop()
+
+
+def test_empty_heap_after_pop(heap):
+    """Test pop on heap with one value empties heap."""
+    heap.push(1)
+    heap.pop()
+    assert heap.contents == []
+
+
+def test_pop_heap2_moves_value_to_0_index(heap_2):
+    """Test pop on heap 2 moves remaining value to index 0."""
+    heap_2.pop()
+    assert heap_2.contents[0] == 7

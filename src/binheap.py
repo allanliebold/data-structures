@@ -21,13 +21,32 @@ class Heap(object):
         if len(self.contents) == 1:
             return
         else:
-            i = len(self.contents) - 1
-            parent = (i - 1) // 2
-            while i > 0:
-                if self.contents[i] > self.contents[parent]:
-                    self.contents[i], self.contents[parent] = \
-                        self.contents[parent], self.contents[i]
+            self.heapify()
 
-                i -= 1
-                parent = (i - 1) // 2
-            return
+    def pop(self):
+        """Remove the value at the top of the heap and sort."""
+        if self._size == 0:
+            raise IndexError('Heap empty.')
+
+        if self._size < 3:
+            if self._size == 1:
+                self.contents = []
+            if self._size == 2:
+                del self.contents[0]
+        else:
+            pass
+        self._size -= 1
+        return
+
+    def heapify(self):
+        """Re-sort heap in proper order."""
+        i = len(self.contents) - 1
+        parent = (i - 1) // 2
+        while i > 0:
+            if self.contents[i] > self.contents[parent]:
+                self.contents[i], self.contents[parent] = \
+                    self.contents[parent], self.contents[i]
+
+            i -= 1
+            parent = (i - 1) // 2
+        return

@@ -38,6 +38,14 @@ def heap():
 
 
 @pytest.fixture
+def heap_2():
+    """Create instance of heap with two values."""
+    from binheap import Heap
+    test_heap = Heap([7, 49])
+    return test_heap
+
+
+@pytest.fixture
 def heap_3():
     """Create instance of heap with empty list."""
     from binheap import Heap
