@@ -93,9 +93,9 @@ size(): Returns the length of the deque. Time complexity: O(1)
 ## Binary Max-Heap
 Tree-type data structure that is filled with new values from left to right, and is organized so that parent nodes are greater than child nodes.
 
-push(data): Adds a new value to the end of the tree, and re-sorts based on rule that parent nodes must be greater than child nodes.
+push(data): Adds a new value to the end of the tree, and re-sorts based on rule that parent nodes must be greater than child nodes. O(log n)
 
-pop(): Removes value from top of the heap, and re-sorts based on rule that parent nodes must be greater than child nodes.
+pop(): Removes value from top of the heap, and re-sorts based on rule that parent nodes must be greater than child nodes. O(log n)
 
 
 ## Authors: Matt Favoino, Allan Liebold
