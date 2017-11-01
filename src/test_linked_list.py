@@ -115,3 +115,12 @@ def test_remove_nonexistent_node():
     target = Node('5')
     with pytest.raises(ValueError):
         linked_list.remove(target)
+
+
+def test_remove_empty_list():
+    """Test that calling remove on empty list raises IndexError."""
+    from linked_list import LinkedList, Node
+    linked_list = LinkedList()
+    target = Node('5')
+    with pytest.raises(IndexError):
+        linked_list.remove(target)
