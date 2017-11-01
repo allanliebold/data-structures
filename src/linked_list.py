@@ -53,6 +53,8 @@ class LinkedList(object):
 
     def search(self, target):
         """Find and return node that contains value passed as argument."""
+        if not self.head:
+            raise IndexError('List is empty.')
         current_node = self.head
         while current_node.data != target:
             if current_node.next_node is None:
@@ -62,24 +64,29 @@ class LinkedList(object):
         print(current_node.data)
         return current_node
 
-    def remove(self, target):
-        """Find node with target value.
+    def remove(self, target_node):
+        """Find target node.
 
         Returns node and removes references to it, or raises ValueError if not
         found.
         """
+        if not self.head:
+            raise IndexError('List is empty.')
+        if self.head == target_node:
+            self.pop()
+            return self.head
+
         current_node = self.head
         search_node = current_node.next_node
-        if current_node.data == target:
-            self.pop()
-            return current_node
-        while search_node.data != target:
-            if search_node.next_node is None:
+        while search_node != target_node:
+            if search_node is None:
                 raise ValueError('Not found')
             else:
-                current_node = search_node
-                search_node = current_node.next_node
-        current_node.next_node = search_node.next_node
+                search_node, current_node = search_node.next_node, search_node
+        if search_node.next_node is None:
+            current_node.next_node = None
+        else:
+            current_node.next_node = search_node.next_node
         self._length -= 1
         return search_node
 
