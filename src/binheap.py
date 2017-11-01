@@ -47,6 +47,5 @@ class Heap(object):
                 self.contents[i], self.contents[parent] = \
                     self.contents[parent], self.contents[i]
 
-            i -= 1
-            parent = (i - 1) // 2
+            i, parent = parent, (i - 1) // 2
         return
