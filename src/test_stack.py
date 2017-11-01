@@ -1,4 +1,5 @@
 """Tests for Stack Class."""
+import pytest
 
 
 def test_stack_init_empty():
@@ -34,7 +35,8 @@ def test_stack_init_with_iterable():
 
 
 def test_stack_pop_empty():
-    """."""
+    """Test that calling pop on empty stack raises IndexError."""
     from stack import Stack
     test_stack = Stack()
-    assert test_stack.pop() is None
+    with pytest.raises(IndexError):
+        test_stack.pop()
