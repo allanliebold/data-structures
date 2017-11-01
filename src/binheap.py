@@ -15,14 +15,10 @@ class Heap(object):
         """Add new value to end of contents and sorts contents."""
         self.contents.append(data)
         if len(self.contents) == 1:
-            print('First: {}'.format(self.contents))
             return
         else:
-            print(self.contents)
             i = len(self.contents) - 1
             parent = (i - 1) // 2
-            print('i: {}'.format(i))
-            print('Parent: {}'.format(parent))
             while i > 0:
                 if self.contents[i] > self.contents[parent]:
                     self.contents[i], self.contents[parent] = \
