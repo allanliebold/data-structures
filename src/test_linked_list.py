@@ -26,11 +26,12 @@ def test_list_push_next():
     linked_list = LinkedList()
     linked_list.push('first')
     linked_list.push('second')
-    assert linked_list.head.data == 'second' and linked_list.head.next_node.data == 'first'
+    assert linked_list.head.data == 'second' and \
+        linked_list.head.next_node.data == 'first'
 
 
 def test_list_push_iterable():
-    """."""
+    """Test that all data is in list when passed as an iterable."""
     from linked_list import LinkedList
     datas = [1, 2, 3, 4, 5]
     linked_list = LinkedList(datas)
@@ -47,10 +48,11 @@ def test_list_pop():
 
 
 def test_list_pop_empty():
-    """Test pop called on an empty linked list."""
+    """Test pop called on an empty linked list. Should raise IndexError."""
     from linked_list import LinkedList
     linked_list = LinkedList()
-    assert linked_list.pop() is None
+    with pytest.raises(IndexError):
+        linked_list.pop()
 
 
 def test_list_search():
