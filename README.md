@@ -90,5 +90,12 @@ peek_left(): Returns the value of the node at the front of the deque. Time compl
 
 size(): Returns the length of the deque. Time complexity: O(1)
 
+## Binary Max-Heap
+Tree-type data structure that is filled with new values from left to right, and is organized so that parent nodes are greater than child nodes.
 
-#Authors: Matt Favoino, Allan Liebold
+push(data): Adds a new value to the end of the tree, and re-sorts based on rule that parent nodes must be greater than child nodes.
+
+pop(): Removes value from top of the heap, and re-sorts based on rule that parent nodes must be greater than child nodes.
+
+
+## Authors: Matt Favoino, Allan Liebold

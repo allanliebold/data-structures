@@ -59,3 +59,16 @@ def test_pop_heap2_moves_value_to_0_index(heap_2):
     """Test pop on heap 2 moves remaining value to index 0."""
     heap_2.pop()
     assert heap_2.contents[0] == 7
+
+
+def test_heap_sorted_after_pop(heap_3):
+    """Test pop on heap to ensure sorted properly."""
+    heap_3.pop()
+    assert heap_3.contents == [74, 5]
+
+
+def test_heap_of_10_nums_sorted_on_initialization():
+    """Test to ensure heapify method is sorting correctly."""
+    from binheap import Heap
+    heap_10 = Heap([3, 22, 31, 4, 49, 47, 19, 88, 92, 2])
+    assert heap_10.contents == [92, 88, 47, 49, 4, 22, 19, 3, 31, 2]
