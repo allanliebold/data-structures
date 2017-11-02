@@ -77,3 +77,25 @@ def priq_pri_1():
     new_priq = PriQ()
     new_priq.insert(7, 1)
     return new_priq
+
+
+@pytest.fixture
+def priq_3_diff():
+    """Create priq with 3 different priorities and values."""
+    from priorityq import PriQ
+    new_priq = PriQ()
+    new_priq.insert(7, 1)
+    new_priq.insert(10, 2)
+    new_priq.insert(14, 3)
+    return new_priq
+
+
+@pytest.fixture
+def priq_2_same():
+    """Create priq with 2 priorities. One has two values."""
+    from priorityq import PriQ
+    new_priq = PriQ()
+    new_priq.insert(7, 1)
+    new_priq.insert(10, 2)
+    new_priq.insert(14, 2)
+    return new_priq

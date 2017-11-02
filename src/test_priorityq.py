@@ -35,3 +35,26 @@ def test_inserts_two_val_same_pri(priq):
     priq.insert(6, 1)
     priq.insert(44, 1)
     assert priq.pri_dict == {1: [6, 44]}
+
+
+def test_pop_empty(priq):
+    """Test popping empty priq raises IndexError."""
+    with pytest.raises(IndexError):
+        priq.pop()
+
+
+def test_pop_1(priq_1):
+    """Test pop with one priority with one value. Pri_dict should empty."""
+    priq_1.pop()
+    assert priq_1.pri_dict == {}
+
+
+def test_pop_3_diff(priq_3_diff):
+    """Test pop on priq with multiple priority values, returns correct value."""
+    assert priq_3_diff.pop() == 14
+
+
+def test_pop_same_priority_order(priq_2_same):
+    """Test pop removes values of same priority in order first in, first out."""
+    priq_2_same.pop()
+    assert priq_2_same.pri_dict[2] == [14]
