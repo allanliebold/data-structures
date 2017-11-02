@@ -58,3 +58,19 @@ def test_pop_same_priority_order(priq_2_same):
     """Test pop removes values of same priority in order first in, first out."""
     priq_2_same.pop()
     assert priq_2_same.pri_dict[2] == [14]
+
+
+def test_peek_at_nothingness_aka_eternal_darkness(priq):
+    """Test peek method when nothing in priq."""
+    with pytest.raises(IndexError):
+        priq.peek()
+
+
+def test_peek_at_a_val(priq_2_same):
+    """Test peek method when nothing in priq."""
+    assert priq_2_same.peek() == 10
+
+
+def test_peek_eyes_on_pris(priq_3_diff):
+    """Test peek method when nothing in priq."""
+    assert priq_3_diff.peek() == 14

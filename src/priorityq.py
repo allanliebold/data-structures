@@ -31,3 +31,11 @@ class PriQ(object):
         if len(self.pri_dict[high_pri]) == 0:
             del self.pri_dict[high_pri]
         return del_val
+
+    def peek(self):
+        """Return highest priority item without removing from queue."""
+        if self.pri_dict == {}:
+            raise IndexError('Priority Queue is empty.')
+        high_pri = max(self.pri_dict)
+        peek_val = self.pri_dict[high_pri][0]
+        return peek_val
