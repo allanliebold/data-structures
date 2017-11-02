@@ -97,5 +97,13 @@ push(data): Adds a new value to the end of the tree, and re-sorts based on rule 
 
 pop(): Removes value from top of the heap, and re-sorts based on rule that parent nodes must be greater than child nodes. O(log n)
 
+## Priority Queue
+A queue with values that has priorities associated with each item. When an item is popped from the queue, the highest priority item is always returned.
+
+insert(data, priority): Inserts value into queue, and accepts an optional argument for the value's priority. Default priority is set to 0. O(1)
+
+pop(): Removes the most important item from the queue and returns its value. O(1)
+
+peek(): Returns the most important item without removing it from the queue. O(1)
 
 ## Authors: Matt Favoino, Allan Liebold

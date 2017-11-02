@@ -51,3 +51,51 @@ def heap_3():
     from binheap import Heap
     test_heap = Heap([5, 99, 74])
     return test_heap
+
+
+@pytest.fixture
+def priq():
+    """Create empty priq."""
+    from priorityq import PriQ
+    new_priq = PriQ()
+    return new_priq
+
+
+@pytest.fixture
+def priq_1():
+    """Create priq with one value and no priority."""
+    from priorityq import PriQ
+    new_priq = PriQ()
+    new_priq.insert(7)
+    return new_priq
+
+
+@pytest.fixture
+def priq_pri_1():
+    """Create priq with one value and a priority of one."""
+    from priorityq import PriQ
+    new_priq = PriQ()
+    new_priq.insert(7, 1)
+    return new_priq
+
+
+@pytest.fixture
+def priq_3_diff():
+    """Create priq with 3 different priorities and values."""
+    from priorityq import PriQ
+    new_priq = PriQ()
+    new_priq.insert(7, 1)
+    new_priq.insert(10, 2)
+    new_priq.insert(14, 3)
+    return new_priq
+
+
+@pytest.fixture
+def priq_2_same():
+    """Create priq with 2 priorities. One has two values."""
+    from priorityq import PriQ
+    new_priq = PriQ()
+    new_priq.insert(7, 1)
+    new_priq.insert(10, 2)
+    new_priq.insert(14, 2)
+    return new_priq
