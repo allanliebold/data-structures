@@ -12,7 +12,6 @@ class PriQ(object):
         """Add value to queue with data and optional priority level."""
         if not isinstance(data, (int, float)):
             raise TypeError('Priority must be a number.')
-
         if priority in self.pri_dict:
             self.pri_dict[priority].append(data)
         else:
