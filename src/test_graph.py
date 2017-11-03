@@ -2,34 +2,31 @@
 import pytest
 
 
-def test_node_class_instantiation():
-    """Test if Node class is created with value attribute."""
-    from graph import Node
-    some_node = Node(4)
-    assert some_node.val == 4
-
-
-def test_graph_class_instantiation():
-    """Test if Graph class is created with all attributes."""
+def test_graph_initialization():
+    """Test creation of graph object."""
     from graph import Graph
-    some_graph = Graph()
-    assert some_graph.all_nodes == []
-    assert some_graph.all_edges == []
-    assert some_graph.graph == {}
+    new_graph = Graph()
+    assert isinstance(new_graph.nodes, set)
 
 
-def test_add_node():
-    """Test if node added to graph and list of nodes."""
+def test_graph_add_node():
+    """Test adding a new node to empty graph."""
     from graph import Graph
-    some_graph = Graph()
-    some_graph.add_node(83)
-    assert some_graph.graph == {83: []}
+    new_graph = Graph()
+    new_graph.add_node(9)
+    assert new_graph.nodes == {9}
 
 
-def test_add_duplicate_value_error():
-    """Test adding a duplicate node raises a ValueError."""
+def test_graph_add_dupe_node():
+    """Test adding a new node to empty graph."""
     from graph import Graph
-    some_graph = Graph()
-    some_graph.add_node(83)
+    new_graph = Graph()
+    new_graph.add_node(9)
     with pytest.raises(ValueError):
-        some_graph.add_node(83)
+        new_graph.add_node(9)
+
+
+def test_graph_add_second_node(graph_1):
+    """Test adding a second node to graph."""
+    graph_1.add_node(2)
+    assert graph_1.nodes == {2, 5}

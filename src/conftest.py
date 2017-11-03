@@ -99,3 +99,31 @@ def priq_2_same():
     new_priq.insert(10, 2)
     new_priq.insert(14, 2)
     return new_priq
+
+
+@pytest.fixture
+def graph():
+    """Create an empty graph."""
+    from graph import Graph
+    new_graph = Graph()
+    return new_graph
+
+
+@pytest.fixture
+def graph_1():
+    """Create graph with one node."""
+    from graph import Graph
+    new_graph = Graph()
+    new_graph.add_node(5)
+    return new_graph
+
+
+@pytest.fixture
+def graph_3():
+    """Create graph with three nodes."""
+    from graph import Graph
+    new_graph = Graph()
+    new_graph.add_node(5)
+    new_graph.add_node(20)
+    new_graph.add_node(17)
+    return new_graph
