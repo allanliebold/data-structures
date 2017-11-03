@@ -22,5 +22,14 @@ def test_add_node():
     """Test if node added to graph and list of nodes."""
     from graph import Graph
     some_graph = Graph()
-    new_node = some_graph.add_node(83)
-    assert new_node in some_graph.graph
+    some_graph.add_node(83)
+    assert some_graph.graph == {83: []}
+
+
+def test_add_duplicate_value_error():
+    """Test adding a duplicate node raises a ValueError."""
+    from graph import Graph
+    some_graph = Graph()
+    some_graph.add_node(83)
+    with pytest.raises(ValueError):
+        some_graph.add_node(83)

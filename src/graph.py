@@ -21,9 +21,9 @@ class Graph(object):
     def add_node(self, val):
         """Create node with value and all to all nodes list."""
         new_node = Node(val)
-        self.all_nodes.append(new_node)
-        if new_node in self.graph:
+        if new_node.val in self.graph:
             raise ValueError("Duplicates are not allowed.")
         else:
-            self.graph[new_node] = []
+            self.graph[new_node.val] = []
+            self.all_nodes.append(new_node)
         return new_node
