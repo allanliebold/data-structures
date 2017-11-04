@@ -48,3 +48,12 @@ class Graph(object):
             return list(self.nodes[val])
         else:
             raise KeyError('Node not found.')
+
+    def adjacent(self, val1, val2):
+        """Return True if nodes passed are connected."""
+        if val1 not in self.nodes or val2 not in self.nodes:
+            raise KeyError('Node not found')
+        elif val2 in self.nodes[val1] or val1 in self.nodes[val2]:
+            return True
+        else:
+            return False

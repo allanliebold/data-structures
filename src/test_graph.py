@@ -102,3 +102,19 @@ def test_neighbors_key_error(graph_w_edge):
     """Test KeyError raises calling neighbor with invalid node."""
     with pytest.raises(KeyError):
         graph_w_edge.neighbors(112)
+
+
+def test_adjacent_node_not_found(graph_3):
+    """Test KeyError raised if node not in dictionary."""
+    with pytest.raises(KeyError):
+        graph_3.adjacent(38, 999)
+
+
+def test_adjacent_val_connected(graph_w_edge):
+    """Test True if values are connected."""
+    assert graph_w_edge.adjacent(2, 84) is True
+
+
+def test_adjacent_val_not_connected(graph_3):
+    """Test False for values not connected."""
+    assert graph_3.adjacent(20, 17) is False
