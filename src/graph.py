@@ -26,9 +26,10 @@ class Graph(object):
 
     def del_node(self, val):
         """Remove node if passed value that matches key in nodes."""
-        if val not in self.nodes:
+        if val in self.nodes:
+            del self.nodes[val]
+        else:
             raise KeyError('Node not found.')
-        del self.nodes[val]
 
     def del_edge(self, val1, val2):
         """Remove edge if passed two values that edge exists. Raise error if it doesn't exist."""
@@ -36,3 +37,14 @@ class Graph(object):
             self.nodes[val1].remove(val2)
         else:
             raise KeyError('Edge not found.')
+
+    def has_node(self, val):
+        """If graph includes node with value passed, return True."""
+        return True if val in self.nodes else False
+
+    def neighbors(self, val):
+        """Return list of nodes connected to node with value passed."""
+        if val in self.nodes:
+            return list(self.nodes[val])
+        else:
+            raise KeyError('Node not found.')

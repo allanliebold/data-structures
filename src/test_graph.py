@@ -67,3 +67,38 @@ def test_del_edge_raise_error_no_edge(graph_w_edge):
     """Test to raise edge not found KeyError."""
     with pytest.raises(KeyError):
         graph_w_edge.del_edge(84, 9)
+
+
+def test_has_node_true(graph_3):
+    """Test has_node called with existing node returns True."""
+    assert graph_3.has_node(20) is True
+
+
+def test_has_node_false(graph_3):
+    """Test has_node called with invalid node returns False."""
+    assert graph_3.has_node(1000) is False
+
+
+def test_has_node_false_after_del(graph_3):
+    """Test has_node returns false after a node is deleted."""
+    graph_3.del_node(17)
+    assert graph_3.has_node(17) is False
+
+
+def test_has_node_true_after_del_edge(graph_w_edge):
+    """Test that has_node is True after edge deleted."""
+    graph_w_edge.del_edge(84, 2)
+    assert graph_w_edge.has_node(2) is True
+
+
+def test_neighbors(graph_w_edge):
+    """Test neighbors returns list of connected nodes."""
+    graph_w_edge.add_edge(84, 17)
+    assert 17 in graph_w_edge.neighbors(84)
+    assert 2 in graph_w_edge.neighbors(84)
+
+
+def test_neighbors_key_error(graph_w_edge):
+    """Test KeyError raises calling neighbor with invalid node."""
+    with pytest.raises(KeyError):
+        graph_w_edge.neighbors(112)
