@@ -49,3 +49,9 @@ def test_add_two_edges_to_node(graph_3):
     graph_3.add_edge(5, 20)
     graph_3.add_edge(5, 17)
     assert graph_3.nodes[5] == {20, 17}
+
+
+def test_del_node_removes_node(graph_3):
+    """Test del_node function removes node."""
+    graph_3.del_node(20)
+    assert graph_3.nodes == {5: set(), 17: set()}

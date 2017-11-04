@@ -23,3 +23,9 @@ class Graph(object):
         if val2 in self.nodes[val1]:
             print('Edge already exists')
         self.nodes[val1].add(val2)
+
+    def del_node(self, val):
+        """Remove node if passed value that matches key in nodes."""
+        if val not in self.nodes:
+            raise KeyError('Node not found.')
+        del self.nodes[val]
