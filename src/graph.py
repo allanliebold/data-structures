@@ -6,13 +6,20 @@ class Graph(object):
 
     def __init__(self):
         """Initialization of node class."""
-        self.nodes = set()
+        self.nodes = dict()
 
     def add_node(self, val):
         """Create node with value and all to all nodes list."""
         if val in self.nodes:
             raise ValueError('Duplicates not allowed.')
-        self.nodes.add(val)
+        self.nodes[val] = set()
 
     def add_edge(self, val1, val2):
         """Create a connection from one node to another."""
+        if val1 not in self.nodes:
+            self.add_node(val1)
+        if val2 not in self.nodes:
+            self.add_node(val2)
+        if val2 in self.nodes[val1]:
+            print('Edge already exists')
+        self.nodes[val1].add(val2)
