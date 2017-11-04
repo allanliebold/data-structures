@@ -29,3 +29,10 @@ class Graph(object):
         if val not in self.nodes:
             raise KeyError('Node not found.')
         del self.nodes[val]
+
+    def del_edge(self, val1, val2):
+        """Remove edge if passed two values that edge exists. Raise error if it doesn't exist."""
+        if val2 in self.nodes[val1]:
+            self.nodes[val1].remove(val2)
+        else:
+            raise KeyError('Edge not found.')

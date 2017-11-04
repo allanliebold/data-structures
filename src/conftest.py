@@ -127,3 +127,14 @@ def graph_3():
     new_graph.add_node(20)
     new_graph.add_node(17)
     return new_graph
+
+
+@pytest.fixture
+def graph_w_edge():
+    """Create graph with node that has edge."""
+    from graph import Graph
+    new_graph = Graph()
+    new_graph.add_node(84)
+    new_graph.add_node(2)
+    new_graph.add_edge(84, 2)
+    return new_graph

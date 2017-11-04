@@ -55,3 +55,15 @@ def test_del_node_removes_node(graph_3):
     """Test del_node function removes node."""
     graph_3.del_node(20)
     assert graph_3.nodes == {5: set(), 17: set()}
+
+
+def test_del_edge_removes_val(graph_w_edge):
+    """Test del_edge to ensure val removed from associated key."""
+    graph_w_edge.del_edge(84, 2)
+    assert graph_w_edge.nodes[84] == set()
+
+
+def test_del_edge_raise_error_no_edge(graph_w_edge):
+    """Test to raise edge not found KeyError."""
+    with pytest.raises(KeyError):
+        graph_w_edge.del_edge(84, 9)
