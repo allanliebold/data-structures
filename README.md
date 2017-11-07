@@ -106,4 +106,23 @@ pop(): Removes the most important item from the queue and returns its value. O(1
 
 peek(): Returns the most important item without removing it from the queue. O(1)
 
+## Graph
+Structure that includes nodes with connections(edges).
+
+add_node(val): Inserts a new node with the passed value into the graph. O(1)
+
+add_edge(val1, val2): Inserts an edge connecting val1 to val2. O(1)
+
+del_node(val): Removes node containing passed value from the graph. O(1)
+
+del_edge(val1, val2): Removes edge connecting the two values passed. O(1)
+
+has_node(val): Returns True if node containing val is in the graph. Otherwise, returns False. O(1)
+
+neighbors(val): Returns list of all nodes connected to node containing val by edges.
+
+adjacent(val1, val2): Returns True if there is an edge connecting val1 and val2. False if not.
+
+
+
 ## Authors: Matt Favoino, Allan Liebold

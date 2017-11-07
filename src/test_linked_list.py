@@ -26,12 +26,11 @@ def test_list_push_next():
     linked_list = LinkedList()
     linked_list.push('first')
     linked_list.push('second')
-    assert linked_list.head.data == 'second' and \
-        linked_list.head.next_node.data == 'first'
+    assert linked_list.head.data == 'second' and linked_list.head.next_node.data == 'first'
 
 
 def test_list_push_iterable():
-    """Test that all data is in list when passed as an iterable."""
+    """."""
     from linked_list import LinkedList
     datas = [1, 2, 3, 4, 5]
     linked_list = LinkedList(datas)
@@ -48,11 +47,10 @@ def test_list_pop():
 
 
 def test_list_pop_empty():
-    """Test pop called on an empty linked list. Should raise IndexError."""
+    """Test pop called on an empty linked list."""
     from linked_list import LinkedList
     linked_list = LinkedList()
-    with pytest.raises(IndexError):
-        linked_list.pop()
+    assert linked_list.pop() is None
 
 
 def test_list_search():
@@ -90,37 +88,3 @@ def test_string_not_iterated_upon_init():
     from linked_list import LinkedList
     linked_list = LinkedList('68')
     assert linked_list.head.data == '68'
-
-
-def test_remove_node():
-    """Test that remove returns the target node."""
-    from linked_list import LinkedList
-    linked_list = LinkedList([2, 3, 4])
-    target = linked_list.head.next_node
-    assert linked_list.remove(linked_list.head.next_node) == target
-
-
-def test_remove_node_list_contents():
-    """Test contents of list after removing a node."""
-    from linked_list import LinkedList
-    linked_list = LinkedList([2, 3, 4])
-    linked_list.remove(linked_list.head.next_node)
-    assert linked_list.display() == '(4, 2)'
-
-
-def test_remove_nonexistent_node():
-    """Test that calling remove with node not in list raises ValueError."""
-    from linked_list import LinkedList, Node
-    linked_list = LinkedList([2, 3, 4])
-    target = Node('5')
-    with pytest.raises(ValueError):
-        linked_list.remove(target)
-
-
-def test_remove_empty_list():
-    """Test that calling remove on empty list raises IndexError."""
-    from linked_list import LinkedList, Node
-    linked_list = LinkedList()
-    target = Node('5')
-    with pytest.raises(IndexError):
-        linked_list.remove(target)
