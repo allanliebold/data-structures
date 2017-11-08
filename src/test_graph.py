@@ -118,3 +118,9 @@ def test_adjacent_val_connected(graph_w_edge):
 def test_adjacent_val_not_connected(graph_3):
     """Test False for values not connected."""
     assert graph_3.adjacent(20, 17) is False
+
+
+def test_edge_deleted_if_node_deleted(graph_w_edge):
+    """Test if that edge is deleted if node is deleted."""
+    graph_w_edge.del_node(2)
+    assert 2 not in graph_w_edge.nodes[84]
