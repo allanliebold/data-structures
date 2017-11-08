@@ -130,4 +130,7 @@ dfs(graph, node): Returns list of nodes visited in depth-first order, starting w
 
 bfs(graph, node): Returns list of nodes visited in breadth-first order, starting with first node passed as an argument. O(n)
 
+## Graph With Weighted Edges
+Graph with edges that include a value representing distance between nodes.
+
 ## Authors: Matt Favoino, Allan Liebold
