@@ -32,3 +32,12 @@ def test_graph_add_edge():
     new_graph = Graph()
     new_graph.add_edge('A', 'B', 6)
     assert new_graph.nodes == {'A': {'B': 6}, 'B': {}}
+
+
+def test_delete_edge():
+    """Test if deleting edge removes edge and distance associated wit it."""
+    from graph_3 import Graph
+    new_graph = Graph()
+    new_graph.add_edge(19, 73, 2)
+    new_graph.del_edge(19, 73)
+    assert new_graph.nodes == {19: {}, 73: {}}
