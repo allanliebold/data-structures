@@ -153,3 +153,12 @@ def graph_5_w_edges():
     new_graph.add_edge(3, 8)
     new_graph.add_edge(8, 16)
     return new_graph
+
+
+@pytest.fixture
+def graph_loop():
+    """Create a graph with a node that is connected unto itself."""
+    from graph import Graph
+    new_graph = Graph()
+    new_graph.add_edge(2, 2)
+    return new_graph
