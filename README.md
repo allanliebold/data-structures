@@ -123,6 +123,11 @@ neighbors(val): Returns list of all nodes connected to node containing val by ed
 
 adjacent(val1, val2): Returns True if there is an edge connecting val1 and val2. False if not.
 
+## Graph Traversal
+Utilizes graph structure to return path of traversal given a starting value.
 
+dfs(graph, node): Returns list of nodes visited in depth-first order, starting with first node passed as an argument. O(n^2)
+
+bfs(graph, node): Returns list of nodes visited in breadth-first order, starting with first node passed as an argument. O(n)
 
 ## Authors: Matt Favoino, Allan Liebold
