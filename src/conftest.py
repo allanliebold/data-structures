@@ -138,3 +138,27 @@ def graph_w_edge():
     new_graph.add_node(2)
     new_graph.add_edge(84, 2)
     return new_graph
+
+
+@pytest.fixture
+def graph_5_w_edges():
+    """Create a graph with 5 nodes and edges."""
+    from graph import Graph
+    new_graph = Graph()
+    new_graph.add_node(77)
+    new_graph.add_node(8)
+    new_graph.add_node(16)
+    new_graph.add_edge(3, 59)
+    new_graph.add_edge(59, 77)
+    new_graph.add_edge(3, 8)
+    new_graph.add_edge(8, 16)
+    return new_graph
+
+
+@pytest.fixture
+def graph_loop():
+    """Create a graph with a node that is connected unto itself."""
+    from graph import Graph
+    new_graph = Graph()
+    new_graph.add_edge(2, 2)
+    return new_graph
