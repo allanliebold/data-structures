@@ -8,12 +8,15 @@ def dijkstra(graph, start, end, visited=[], distances={}, routes={}):
     Find the shortest path from a starting node to and end node.
     """
     if start == end:
-        path = []
+        shortest_path = []
+        path_str = ''
         pred = end
         while pred is not None:
-            path.append(pred)
+            shortest_path.append(pred)
+            path_str += pred
             pred = routes.get(pred, None)
-        return path
+        print(shortest_path[::-1])
+        return shortest_path[::-1]
     else:
         if not visited:
             distances[start] = 0
@@ -28,5 +31,5 @@ def dijkstra(graph, start, end, visited=[], distances={}, routes={}):
         for node in graph.nodes:
             if node not in visited:
                 unvisited[node] = distances.get(node, float('inf'))
-            new_start = min(unvisited, key=unvisited.get)
-            dijkstra(graph, new_start, visited, distances, routes)
+        new_start = min(unvisited, key=unvisited.get)
+        dijkstra(graph, new_start, end, visited, distances, routes)
