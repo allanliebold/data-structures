@@ -162,3 +162,17 @@ def graph_loop():
     new_graph = Graph()
     new_graph.add_edge(2, 2)
     return new_graph
+
+
+@pytest.fixture
+def weighted_graph():
+    """Create graph with weights."""
+    from graph_3 import Graph
+    new_graph = Graph()
+    new_graph.add_edge('a', 'b', 5)
+    new_graph.add_edge('a', 'c', 2)
+    new_graph.add_edge('b', 'e', 3)
+    new_graph.add_edge('c', 'd', 6)
+    new_graph.add_edge('c', 'e', 4)
+    new_graph.add_edge('e', 'f', 1)
+    return new_graph
