@@ -176,3 +176,14 @@ def weighted_graph():
     new_graph.add_edge('c', 'e', 4)
     new_graph.add_edge('e', 'f', 1)
     return new_graph
+
+
+@pytest.fixture
+def weighted_graph_3_nodes():
+    """Create graph with weights."""
+    from graph_3 import Graph
+    new_graph = Graph()
+    new_graph.add_edge('a', 'b', 2)
+    new_graph.add_edge('b', 'c', 2)
+    new_graph.add_edge('a', 'c', 6)
+    return new_graph
