@@ -162,3 +162,19 @@ def graph_loop():
     new_graph = Graph()
     new_graph.add_edge(2, 2)
     return new_graph
+
+
+@pytest.fixture
+def bst_empty():
+    """Create an empty bst."""
+    from bst import BST
+    new_bst = BST()
+    return new_bst
+
+
+@pytest.fixture
+def bst_three():
+    """Create bst with three nodes."""
+    from bst import BST
+    new_bst = BST((10, 5, 15))
+    return new_bst
