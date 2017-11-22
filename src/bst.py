@@ -100,7 +100,7 @@ class BST(object):
         return self.left_layers - self.right_layers
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
     """Document best and worst cast search with timeit."""
     import timeit as ti
     best_tree = BST((10, 5, 15, 4, 13, 7, 20))
