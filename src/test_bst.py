@@ -61,3 +61,52 @@ def test_search_invalid_data(bst_three):
 def test_search_data_in_root(bst_three):
     """Test search for data in root returns root node."""
     assert bst_three.search(10) == bst_three.root
+
+
+def test_contains_data_in_tree(bst_three):
+    """Test contains method on data in tree returns True."""
+    assert bst_three.contains(5) is True
+
+
+def test_contains_data_not_in_tree(bst_three):
+    """Test contains method on data in tree returns True."""
+    assert bst_three.contains(8) is False
+
+
+def test_depth_of_zero_empty_tree(bst_empty):
+    """Depth on empty tree is 0."""
+    assert bst_empty.depth() == 0
+
+
+def test_depth_of_zero_tree_with_root(bst_empty):
+    """Depth on tree with one node is 0."""
+    bst_empty.insert(30)
+    assert bst_empty.depth() == 0
+
+
+def test_depth_of_one(bst_three):
+    """Test that tree returns depth of 1."""
+    assert bst_three.depth() == 1
+
+
+def test_depth_of_two(bst_three):
+    """Test tree with depth of 2."""
+    bst_three.insert(8)
+    assert bst_three.depth() == 2
+
+
+def test_balance_equal(bst_three):
+    """Test balanced tree returns 0."""
+    assert bst_three.balance() == 0
+
+
+def test_balance_negative_one(bst_three):
+    """Test left balanced tree returns 1."""
+    bst_three.insert(6)
+    assert bst_three.balance() == 1
+
+
+def test_balance_plus_one(bst_three):
+    """Test left balanced tree returns -1."""
+    bst_three.insert(20)
+    assert bst_three.balance() == -1
