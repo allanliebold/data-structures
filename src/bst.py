@@ -105,13 +105,16 @@ class BST(object):
         order = []
 
         def gen_in_order(curr):
+            """In order generator helper function."""
             if curr:
                 gen_in_order(curr.left)
-                order.append(curr.data)
+                if curr.data not in order:
+                    order.append(curr.data)
                 gen_in_order(curr.right)
 
         gen_in_order(curr)
-        print(order)
+        for i in order:
+            yield i
 
     def pre_order(self):
         """Generator that returns tree values using pre-order traversal."""
@@ -119,12 +122,16 @@ class BST(object):
         order = []
 
         def gen_pre_order(curr):
+            """Pre order generator helper function."""
             if curr:
-                order.append(curr.data)
+                if curr.data not in order:
+                    order.append(curr.data)
                 gen_pre_order(curr.left)
                 gen_pre_order(curr.right)
 
         gen_pre_order(curr)
+        for i in order:
+            yield i
 
     def post_order(self):
         """Generator that returns tree values using post-order traversal."""
@@ -138,6 +145,8 @@ class BST(object):
                 order.append(curr.data)
 
         gen_post_order(curr)
+        for i in order:
+            yield i
 
     def breadth_first(self):
         """Generator that returns tree values breadth-first."""
@@ -150,7 +159,9 @@ class BST(object):
                 route.append(curr.left)
             if curr.right:
                 route.append(curr.right)
-        print(order)
+
+        for i in order:
+            yield i
 
 
 if __name__ == '__main__':  # pragma: no cover
