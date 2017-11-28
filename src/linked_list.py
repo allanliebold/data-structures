@@ -8,7 +8,7 @@ class Node(object):
     """Create Node class object used in list."""
 
     def __init__(self, data):
-        """Initialization of node class object with next and data attributes."""
+        """Initialization of node object with next and data attributes."""
         self.next_node = None
         self.data = data
 
@@ -17,7 +17,7 @@ class LinkedList(object):
     """Linked list class object that contains nodes."""
 
     def __init__(self, iterable=()):
-        """Initialization of list class object with a head, length, and can accept iterable."""
+        """Initialization of list with head, length, accepts iterable."""
         self.head = None
         self._length = 0
         if isinstance(iterable, (tuple, list)):
@@ -60,7 +60,7 @@ class LinkedList(object):
         return current_node
 
     def remove(self, target):
-        """Find node with target value, removes references to it, and returns value."""
+        """Find target node, removes references to it, returns value."""
         current_node = self.head
         search_node = current_node.next_node
         if current_node.data == target:
