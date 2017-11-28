@@ -178,3 +178,11 @@ def bst_three():
     from bst import BST
     new_bst = BST((10, 5, 15))
     return new_bst
+
+
+@pytest.fixture
+def bst_big():
+    """Create a large bst for testing."""
+    from bst import BST
+    new_bst = BST((10, 5, 15, 2, 12, 8, 20, 22, 1, 7, 19, 3, 9, 11, 13))
+    return new_bst

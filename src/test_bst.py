@@ -110,3 +110,87 @@ def test_balance_plus_one(bst_three):
     """Test left balanced tree returns -1."""
     bst_three.insert(20)
     assert bst_three.balance() == -1
+
+
+def test_in_order_gen(bst_three):
+    """Test in order generator on tree with three nodes."""
+    gen = bst_three.in_order()
+    output = []
+    for i in range(3):
+        output.append(next(gen))
+    assert output == [5, 10, 15]
+
+
+def test_pre_order_gen(bst_three):
+    """Test pre order generator on tree with three nodes."""
+    gen = bst_three.pre_order()
+    output = []
+    for i in range(3):
+        output.append(next(gen))
+    assert output == [10, 5, 15]
+
+
+def test_post_order_gen(bst_three):
+    """Test post order generator on tree with three nodes."""
+    gen = bst_three.post_order()
+    output = []
+    for i in range(3):
+        output.append(next(gen))
+    assert output == [5, 15, 10]
+
+
+def test_breadth_first_gen(bst_three):
+    """Test breadth first generator on tree with three nodes."""
+    gen = bst_three.breadth_first()
+    output = []
+    for i in range(3):
+        output.append(next(gen))
+    assert output == [10, 5, 15]
+
+
+def test_in_order_gen_big(bst_big):
+    """Test in order generator on tree with many nodes."""
+    gen = bst_big.in_order()
+    output = []
+    for i in range(15):
+        output.append(next(gen))
+    assert output == [1, 2, 3, 5, 7, 8, 9, 10, 11, 12, 13, 15, 19, 20, 22]
+
+
+def test_pre_order_gen_big(bst_big):
+    """Test pre order generator on tree with many nodes."""
+    gen = bst_big.pre_order()
+    output = []
+    for i in range(15):
+        output.append(next(gen))
+    assert output == [10, 5, 2, 1, 3, 8, 7, 9, 15, 12, 11, 13, 20, 19, 22]
+
+
+def test_post_order_gen_big(bst_big):
+    """Test post order generator on tree with many nodes."""
+    gen = bst_big.post_order()
+    output = []
+    for i in range(15):
+        output.append(next(gen))
+    assert output == [1, 3, 2, 7, 9, 8, 5, 11, 13, 12, 19, 22, 20, 15, 10]
+
+
+def test_breadth_first_gen_big(bst_big):
+    """Test breadth first generator on tree with many nodes."""
+    gen = bst_big.breadth_first()
+    output = []
+    for i in range(15):
+        output.append(next(gen))
+    assert output == [10, 5, 15, 2, 8, 12, 20, 1, 3, 7, 9, 11, 13, 19, 22]
+
+
+def test_traversal_empty(bst_empty):
+    """Test traversal on empty tree."""
+    assert bst_empty.in_order() == 'Tree empty'
+
+
+def test_traversal_one_node(bst_empty):
+    """Test traversal on tree with one node."""
+    bst_empty.insert(1)
+    gen = bst_empty.in_order()
+    assert next(gen) == 1
