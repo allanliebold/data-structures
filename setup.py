@@ -7,7 +7,7 @@ setup(
     version=0.1,
     author="Matt Favoino, Allan Liebold",
     licence="MIT",
-    py_modules=['linked-list'],
+    py_modules=['linked-list', 'stack'],
     package_dir={'': 'src'},
     install_requires=[],
     extras_require={
