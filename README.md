@@ -1,6 +1,6 @@
 # Data Structures
 
-https://travis-ci.org/allanliebold/data-structures.svg?branch=master
+[![Build Status](https://travis-ci.org/allanliebold/data-structures.svg?branch=master)](https://travis-ci.org/allanliebold/data-structures)
 
 ## Singly-Linked List
 A data structure that links together nodes in one direction, beginning at a head node. This structure is used for keeping
