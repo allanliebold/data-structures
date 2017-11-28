@@ -3,6 +3,6 @@ python:
   - "3.6"
 cache: pip
 install: 
-  - pip install -e .
+  - pip install tox
 script:
   - tox
