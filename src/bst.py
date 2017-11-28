@@ -100,7 +100,10 @@ class BST(object):
         return self.left_layers - self.right_layers
 
     def in_order(self):
-        """Generator that returns tree values in order."""
+        """Put tree values into a list in order."""
+        if not self.root:
+            return 'Tree empty'
+    
         curr = self.root
         order = []
 
@@ -113,11 +116,14 @@ class BST(object):
                 gen_in_order(curr.right)
 
         gen_in_order(curr)
-        for i in order:
-            yield i
+
+        return self.traversal_generator(order)
 
     def pre_order(self):
-        """Generator that returns tree values using pre-order traversal."""
+        """Put tree values into a list using pre-order traversal."""
+        if not self.root:
+            return 'Tree empty'
+
         curr = self.root
         order = []
 
@@ -130,11 +136,13 @@ class BST(object):
                 gen_pre_order(curr.right)
 
         gen_pre_order(curr)
-        for i in order:
-            yield i
+        return self.traversal_generator(order)
 
     def post_order(self):
-        """Generator that returns tree values using post-order traversal."""
+        """Put tree values into a list using post-order traversal."""
+        if not self.root:
+            return 'Tree empty'
+
         curr = self.root
         order = []
 
@@ -145,11 +153,13 @@ class BST(object):
                 order.append(curr.data)
 
         gen_post_order(curr)
-        for i in order:
-            yield i
+        return self.traversal_generator(order)
 
     def breadth_first(self):
-        """Generator that returns tree values breadth-first."""
+        """Put tree values into a list breadth-first."""
+        if not self.root:
+            return 'Tree empty'
+
         order = []
         route = [self.root]
         while route:
@@ -160,6 +170,10 @@ class BST(object):
             if curr.right:
                 route.append(curr.right)
 
+        return self.traversal_generator(order)
+
+    def traversal_generator(self, order):
+        """Generator for tree traversals."""
         for i in order:
             yield i
 
