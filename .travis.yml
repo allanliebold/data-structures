@@ -6,4 +6,4 @@ cache: pip
 install: 
   - pip install -e .
 script:
-  - pytest
+  - tox
