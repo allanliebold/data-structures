@@ -43,7 +43,6 @@ Time complexity: O(1)
 pop(): Removes the top node from the stack, and returns the value of the node.
 Time complexity: O(1)
 
-
 ## Doubly-Linked List
 Similar to a Singly-Linked list, but each node also points to the previous node. In addition to the head, the list also
 contains a tail node. This is more flexible than a Singly-Linked List, but requires more space in memory. An example of a use 

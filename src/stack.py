@@ -24,8 +24,4 @@ class Stack(object):
 
     def __len__(self):
         """Function uses built-in len function to show length."""
-        return self._length
-
-    def __str__(self):
-        """Function uses built-in print function to display list as string."""
-        return self.display()
+        return self._linkedlist._length
