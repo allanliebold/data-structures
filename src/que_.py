@@ -26,14 +26,20 @@ class Queue(object):
 
     def dequeue(self):
         """Remove node from queue at tail."""
+        if self._dll._length == 0:
+            raise IndexError('Queue empty')
         return self._dll.shift()
 
     def peek(self):
         """Display next value that will be removed if dequeued is called."""
-        if self.length == 0:
+        if self._dll._length == 0:
             return None
         return self._dll.tail.data
 
     def __len__(self):
         """Function overwrites built-in len function to show length."""
         return self.length
+
+    def __str__(self):
+        """Function uses built-in print function to display list as string."""
+        return self.display()
