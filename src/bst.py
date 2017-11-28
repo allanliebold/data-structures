@@ -71,6 +71,10 @@ class BST(object):
         ):
             self.left_layers += 1
 
+    def delete(self, data):
+        """Delete node with specified data."""
+        pass
+
     def search(self, data):
         """Return node with specified data, or None."""
         curr = self.root
@@ -103,7 +107,7 @@ class BST(object):
         """Put tree values into a list in order."""
         if not self.root:
             return 'Tree empty'
-    
+
         curr = self.root
         order = []
 
