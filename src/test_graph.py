@@ -129,8 +129,6 @@ def test_edge_deleted_if_node_deleted(graph_w_edge):
     """Test if that edge is deleted if node is deleted."""
     graph_w_edge.del_node(2)
     assert 2 not in graph_w_edge.nodes[84]
-<<<<<<< HEAD
-=======
 
 
 def test_all_nodes_graph_3(graph_3):
@@ -151,4 +149,3 @@ def test_edges_in_graph_w_edges(graph_w_edges):
     assert '3-4' in graph_w_edges.edges()
     assert '3-5' in graph_w_edges.edges()
     assert '5-1' in graph_w_edges.edges()
->>>>>>> graph_1

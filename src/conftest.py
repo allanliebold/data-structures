@@ -141,7 +141,6 @@ def graph_w_edge():
 
 
 @pytest.fixture
-<<<<<<< HEAD
 def graph_5_w_edges():
     """Create a graph with 5 nodes and edges."""
     from graph import Graph
@@ -187,7 +186,9 @@ def bst_big():
     from bst import BST
     new_bst = BST((10, 5, 15, 2, 12, 8, 20, 22, 1, 7, 19, 3, 9, 11, 13))
     return new_bst
-=======
+
+
+@pytest.fixture
 def graph_w_edges():
     """Create graph with node that has multiple edges."""
     from graph import Graph
@@ -197,4 +198,3 @@ def graph_w_edges():
     new_graph.add_edge(3, 5)
     new_graph.add_edge(5, 1)
     return new_graph
->>>>>>> graph_1
