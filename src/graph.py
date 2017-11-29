@@ -8,6 +8,19 @@ class Graph(object):
         """Initialization of node class."""
         self.nodes = dict()
 
+    def all_nodes(self):
+        """Return a list of all nodes in graph."""
+        return list(self.nodes.keys())
+
+    def all_edges(self):
+        """Return a list of all edges in graph."""
+        edge_list = []
+        for key, value in self.nodes.items():
+            for item in value:
+                edge_list.append('{}-{}'.format(key, item))
+
+        return edge_list
+
     def add_node(self, val):
         """Create node with value and all to all nodes list."""
         if val in self.nodes:
@@ -56,7 +69,7 @@ class Graph(object):
         """Return True if nodes passed are connected."""
         if val1 not in self.nodes or val2 not in self.nodes:
             raise KeyError('Node not found')
-        elif val2 in self.nodes[val1] or val1 in self.nodes[val2]:
+        elif val2 in self.nodes[val1]:
             return True
         else:
             return False

@@ -141,6 +141,18 @@ def graph_w_edge():
 
 
 @pytest.fixture
+def graph_w_edges():
+    """Create graph with node that has multiple edges."""
+    from graph import Graph
+    new_graph = Graph()
+    new_graph.add_edge(1, 3)
+    new_graph.add_edge(3, 4)
+    new_graph.add_edge(3, 5)
+    new_graph.add_edge(5, 1)
+    return new_graph
+
+
+@pytest.fixture
 def graph_5_w_edges():
     """Create a graph with 5 nodes and edges."""
     from graph import Graph
@@ -161,4 +173,3 @@ def graph_loop():
     from graph import Graph
     new_graph = Graph()
     new_graph.add_edge(2, 2)
-    return new_graph
