@@ -56,7 +56,7 @@ class Graph(object):
         """Return True if nodes passed are connected."""
         if val1 not in self.nodes or val2 not in self.nodes:
             raise KeyError('Node not found')
-        elif val2 in self.nodes[val1] or val1 in self.nodes[val2]:
+        elif val2 in self.nodes[val1]:
             return True
         else:
             return False
