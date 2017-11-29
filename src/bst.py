@@ -10,6 +10,7 @@ class Node(object):
         self.left = None
         self.right = None
         self.depth = 0
+        self.parent = None
 
 
 class BST(object):
@@ -46,6 +47,7 @@ class BST(object):
                 if not curr.left:
                     new_node.depth = curr.depth + 1
                     curr.left = new_node
+                    new_node.parent = curr
                     self._size += 1
                     break
                 curr = curr.left
@@ -53,6 +55,7 @@ class BST(object):
                 if not curr.right:
                     new_node.depth = curr.depth + 1
                     curr.right = new_node
+                    new_node.parent = curr
                     self._size += 1
                     break
                 curr = curr.right
@@ -71,10 +74,6 @@ class BST(object):
         ):
             self.left_layers += 1
 
-    def delete(self, data):
-        """Delete node with specified data."""
-        pass
-
     def search(self, data):
         """Return node with specified data, or None."""
         curr = self.root
@@ -86,6 +85,60 @@ class BST(object):
             elif data > curr.data:
                 curr = curr.right
         return
+
+    def delete(self, data):
+        """Delete node with specified data."""
+        target = self.search(data)
+        if not target:
+            return
+
+        if not target.left and not target.right:
+            if not target.parent:
+                self.root = None
+            elif target.data > target.parent.data:
+                target.parent.right = None
+            else:
+                target.parent.left = None
+
+        elif target.left and target.right:
+            curr = target.right
+            while curr and curr.left:
+                curr = curr.left
+            print(curr.data)
+
+            if curr.right:
+                curr.parent.left = curr.right
+            if target.right != curr:
+                curr.right = target.right
+
+            if not target.parent:
+                self.root = curr
+                curr.parent = None
+            else:
+                curr.parent = target.parent
+                if target.data > target.parent.data:
+                    target.parent.right = curr
+                else:
+                    target.parent.left = curr
+
+        else:
+            if target.left:
+                child = target.left
+            else:
+                child = target.right
+
+            if not target.parent:
+                self.root = child
+                child.parent = None
+            else:
+                child.parent = target.parent
+                if target.data > target.parent.data:
+                    target.parent.right = child
+                else:
+                    target.parent.left = child
+
+        self._size -= 1
+        return target.data
 
     def size(self):
         """Return number of nodes in tree."""
