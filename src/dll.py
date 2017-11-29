@@ -33,7 +33,7 @@ class Dll(object):
         """Remove node at head of list."""
         if not self.head:
             raise IndexError('List empty')
-        deleted_node = self._linkedlist.pop()
+        deleted_node = self.head.data
         self._length -= 1
         if not self.head.next_node:
             self.head = None

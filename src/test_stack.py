@@ -33,6 +33,13 @@ def test_stack_init_with_iterable():
     assert len(test_stack) == 3
 
 
+def test_stack_pop_return():
+    """Test that pop returns value of popped node."""
+    from stack import Stack
+    test_stack = Stack([1, 2, 3])
+    assert test_stack.pop() == 3
+
+
 def test_stack_pop_empty():
     """Test that pop on empty stack returns None."""
     from stack import Stack
