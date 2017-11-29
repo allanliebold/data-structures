@@ -208,6 +208,65 @@ def test_parentage_of_second_node(bst_three):
 
 
 def test_parentage_of_edge_node(bst_big):
-    """Test that child in a big tree has correct parent."""
+    """Test that a specific child in a big tree has correct parent."""
     child = bst_big.root.left.right.left
     assert child.parent.parent.data == 5
+
+
+def test_delete_root_only_node(bst_empty):
+    """Test deleting root from one node tree."""
+    bst_empty.insert(1)
+    bst_empty.delete(1)
+    assert bst_empty.root is None
+
+
+def test_delete_root_and_replace(bst_three):
+    """Test deleting root puts expected node in its place."""
+    bst_three.delete(10)
+    assert bst_three.root.data == 15
+    assert bst_three.root.parent is None
+    assert bst_three.root.right is None
+    assert bst_three.root.left.data == 5
+
+
+def test_delete_root_and_replace_big_tree(bst_big):
+    """Test deleting root with a larger tree."""
+    bst_big.delete(10)
+    assert bst_big.root.data == 11
+    assert bst_big.root.parent is None
+
+
+def test_delete_leaf(bst_three):
+    """Test deleting a non-root node without children."""
+    assert bst_three.delete(5) == 5
+    assert bst_three.root.left is None
+    assert bst_three._size == 2
+
+
+def test_delete_node_children(bst_big):
+    """Test deleting a node with two children."""
+    bst_big.delete(15)
+    assert bst_big.root.right.data == 19
+    assert bst_big.root.right.left.data == 12
+
+
+def test_delete_node_only_child(bst_long_branch_right):
+    """Test deleting a node with one child."""
+    bst_long_branch_right.delete(2)
+    assert bst_long_branch_right.root.right.data == 3
+
+
+def test_delete_node_only_child_left(bst_long_branch_left):
+    """Test deleting a node with one child on the left side."""
+    bst_long_branch_left.delete(9)
+    assert bst_long_branch_left.root.left.data == 8
+
+
+def test_delete_from_empty_tree(bst_empty):
+    """Test delete called on empty tree returns None."""
+    assert bst_empty.delete(1) is None
+
+
+def test_delete_invalid_value(bst_big):
+    """Test calling delete with a value not in the tree."""
+    assert bst_big.delete(44) is None
