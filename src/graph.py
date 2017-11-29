@@ -12,7 +12,7 @@ class Graph(object):
         """Return a list of all nodes in graph."""
         return list(self.nodes.keys())
 
-    def edges(self):
+    def all_edges(self):
         """Return a list of all edges in graph."""
         edge_list = []
         for key, value in self.nodes.items():
