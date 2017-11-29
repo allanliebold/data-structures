@@ -9,14 +9,6 @@ def test_dll_attr():
     assert test_dll._length == 0
 
 
-def test_dll_length_one():
-    """Test pushing to an empty list."""
-    from dll import Dll
-    test_dll = Dll()
-    test_dll.push(1)
-    assert test_dll._length == 1
-
-
 def test_dll_push_one():
     """Test pushing to an empty list."""
     from dll import Dll
