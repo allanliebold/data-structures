@@ -213,6 +213,16 @@ def test_parentage_of_edge_node(bst_big):
     assert child.parent.parent.data == 5
 
 
+def test_delete_from_empty_tree(bst_empty):
+    """Test delete called on empty tree returns None."""
+    assert bst_empty.delete(1) is None
+
+
+def test_delete_invalid_value(bst_big):
+    """Test calling delete with a value not in the tree."""
+    assert bst_big.delete(44) is None
+
+
 def test_delete_root_only_node(bst_empty):
     """Test deleting root from one node tree."""
     bst_empty.insert(1)
@@ -260,13 +270,3 @@ def test_delete_node_only_child_left(bst_long_branch_left):
     """Test deleting a node with one child on the left side."""
     bst_long_branch_left.delete(9)
     assert bst_long_branch_left.root.left.data == 8
-
-
-def test_delete_from_empty_tree(bst_empty):
-    """Test delete called on empty tree returns None."""
-    assert bst_empty.delete(1) is None
-
-
-def test_delete_invalid_value(bst_big):
-    """Test calling delete with a value not in the tree."""
-    assert bst_big.delete(44) is None

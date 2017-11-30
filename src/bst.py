@@ -110,18 +110,17 @@ class BST(object):
                 curr.parent.left = curr.right
             if target.right != curr:
                 curr.right = target.right
-
             curr.left = target.left
 
             if not target.parent:
                 self.root = curr
                 curr.parent = None
             else:
-                curr.parent = target.parent
                 if target.data > target.parent.data:
                     target.parent.right = curr
                 else:
                     target.parent.left = curr
+                curr.parent = target.parent
 
         else:
             if target.left:
