@@ -8,7 +8,8 @@ setup(
     author="Matt Favoino, Allan Liebold",
     licence="MIT",
     py_modules=['linked-list', 'stack', 'dll', 'que_', 'deque',
-                'priorityq', 'binheap', 'graph'],
+                'priorityq', 'binheap', 'graph', 'graph_2', 'graph_3',
+                'bst'],
     package_dir={'': 'src'},
     install_requires=[],
     extras_require={

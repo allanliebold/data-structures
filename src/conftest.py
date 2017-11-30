@@ -156,6 +156,18 @@ def graph_5_w_edges():
 
 
 @pytest.fixture
+def graph_w_edges():
+    """Create graph with node that has multiple edges."""
+    from graph import Graph
+    new_graph = Graph()
+    new_graph.add_edge(1, 3)
+    new_graph.add_edge(3, 4)
+    new_graph.add_edge(3, 5)
+    new_graph.add_edge(5, 1)
+    return new_graph
+
+
+@pytest.fixture
 def graph_loop():
     """Create a graph with a node that is connected unto itself."""
     from graph import Graph
@@ -189,12 +201,16 @@ def bst_big():
 
 
 @pytest.fixture
-def graph_w_edges():
-    """Create graph with node that has multiple edges."""
-    from graph import Graph
-    new_graph = Graph()
-    new_graph.add_edge(1, 3)
-    new_graph.add_edge(3, 4)
-    new_graph.add_edge(3, 5)
-    new_graph.add_edge(5, 1)
-    return new_graph
+def bst_long_branch_right():
+    """Create a bst that extends right."""
+    from bst import BST
+    new_bst = BST((1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+    return new_bst
+
+
+@pytest.fixture
+def bst_long_branch_left():
+    """Create a bst that extends left."""
+    from bst import BST
+    new_bst = BST((10, 9, 8, 7, 6, 5, 4, 3, 2, 1))
+    return new_bst
