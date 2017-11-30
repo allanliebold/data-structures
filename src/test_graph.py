@@ -138,14 +138,14 @@ def test_all_nodes_graph_3(graph_3):
     assert 20 in graph_3.all_nodes()
 
 
-def test_edges_in_graph_w_edge(graph_w_edge):
+def test_all_edges_in_graph_w_edge(graph_w_edge):
     """Test edges method returns the correct edges."""
-    assert graph_w_edge.edges() == ['84-2']
+    assert graph_w_edge.all_edges() == ['84-2']
 
 
-def test_edges_in_graph_w_edges(graph_w_edges):
+def test_all_edges_in_graph_w_edges(graph_w_edges):
     """Test edges method returns the correct edges."""
-    assert '1-3' in graph_w_edges.edges()
-    assert '3-4' in graph_w_edges.edges()
-    assert '3-5' in graph_w_edges.edges()
-    assert '5-1' in graph_w_edges.edges()
+    assert '1-3' in graph_w_edges.all_edges()
+    assert '3-4' in graph_w_edges.all_edges()
+    assert '3-5' in graph_w_edges.all_edges()
+    assert '5-1' in graph_w_edges.all_edges()

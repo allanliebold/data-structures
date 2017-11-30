@@ -1,4 +1,4 @@
-"""Implement a graph of nodes and edges."""
+"""Implement a graph with weighted edges."""
 
 
 class Graph(object):
@@ -8,26 +8,13 @@ class Graph(object):
         """Initialization of node class."""
         self.nodes = dict()
 
-    def all_nodes(self):
-        """Return a list of all nodes in graph."""
-        return list(self.nodes.keys())
-
-    def all_edges(self):
-        """Return a list of all edges in graph."""
-        edge_list = []
-        for key, value in self.nodes.items():
-            for item in value:
-                edge_list.append('{}-{}'.format(key, item))
-
-        return edge_list
-
     def add_node(self, val):
         """Create node with value and all to all nodes list."""
         if val in self.nodes:
             raise ValueError('Duplicates not allowed.')
-        self.nodes[val] = set()
+        self.nodes[val] = dict()
 
-    def add_edge(self, val1, val2):
+    def add_edge(self, val1, val2, dist):
         """Create a connection from one node to another."""
         if val1 not in self.nodes:
             self.add_node(val1)
@@ -35,7 +22,7 @@ class Graph(object):
             self.add_node(val2)
         if val2 in self.nodes[val1]:
             print('Edge already exists')
-        self.nodes[val1].add(val2)
+        self.nodes[val1][val2] = dist
 
     def del_node(self, val):
         """Remove node if passed value that matches key in nodes."""
@@ -43,14 +30,11 @@ class Graph(object):
             del self.nodes[val]
         else:
             raise KeyError('Node not found.')
-        for key in self.nodes:
-            if val in self.nodes[key]:
-                self.del_edge(key, val)
 
     def del_edge(self, val1, val2):
         """Remove edge if passed two values that edge exists. Raise error if it doesn't exist."""
         if val2 in self.nodes[val1]:
-            self.nodes[val1].remove(val2)
+            del self.nodes[val1][val2]
         else:
             raise KeyError('Edge not found.')
 
