@@ -20,4 +20,8 @@ class Stack(object):
 
     def pop(self):
         """Pop method for Stack. Removes node at head."""
-        self._linkedlist.pop()
+        return self._linkedlist.pop()
+
+    def __len__(self):
+        """Function uses built-in len function to show length."""
+        return self._linkedlist._length
