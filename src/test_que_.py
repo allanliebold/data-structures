@@ -1,11 +1,12 @@
 """Tests for queue data structure."""
+import pytest
 
 
 def test_queue_init():
     """Test if queue object is created."""
     from que_ import Queue
     test_q = Queue()
-    assert test_q._length == 0
+    assert test_q.size == 0
 
 
 def test_queue_enqueue_node():
@@ -41,7 +42,7 @@ def test_dequeue_node_length():
     test_q.enqueue(9)
     test_q.enqueue(10)
     test_q.dequeue()
-    assert test_q.length == 1
+    assert test_q.size == 1
 
 
 def test_dequeue_head_is_tail_with_one():
@@ -68,3 +69,11 @@ def test_peek_empty():
     from que_ import Queue
     test_q = Queue()
     assert test_q.peek() is None
+
+
+def test_type_error_dequeue_if_empty():
+    """Raise TypeError is dequeue is called on empty queue."""
+    from que_ import Queue
+    test_q = Queue()
+    with pytest.raises(IndexError):
+        test_q.dequeue()

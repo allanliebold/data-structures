@@ -16,7 +16,7 @@ class Queue(object):
         self.tail = self._dll.tail
 
     @property
-    def length(self):
+    def size(self):
         """Use dll length method to return size of list."""
         return self._dll._length
 
@@ -26,14 +26,17 @@ class Queue(object):
 
     def dequeue(self):
         """Remove node from queue at tail."""
-        return self._dll.shift()
+        if self.size == 0:
+            raise IndexError('The queue is empty.')
+        else:
+            return self._dll.shift()
 
     def peek(self):
         """Display next value that will be removed if dequeued is called."""
-        if self.length == 0:
+        if self.size == 0:
             return None
         return self._dll.tail.data
 
     def __len__(self):
         """Function overwrites built-in len function to show length."""
-        return self.length
+        return self.size
